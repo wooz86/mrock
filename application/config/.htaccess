@@ -1,0 +1,4 @@
+<VirtualHost *:8888/laravel>
+    DocumentRoot ~/Sites/laravel/public
+    ServerName laravel.dev
+</VirtualHost>
