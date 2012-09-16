@@ -32,10 +32,27 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('home.index');
-});
+
+Route::controller('admin.gallery');
+Route::controller('admin.home');
+
+Route::controller('home');
+Route::controller('user');
+
+Route::post('admin', array('before' => 'auth'));
+
+Route::get('user/login', 'user@index');
+
+Route::get('login', 'user@index') ;
+Route::post('login', 'user@login');
+
+Route::get('logout', 'user@logout');
+Route::post('logout', 'user@logout');
+
+
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -109,3 +126,5 @@ Route::filter('auth', function()
 {
 	if (Auth::guest()) return Redirect::to('login');
 });
+
+Route::filter('pattern: admin*', 'auth');

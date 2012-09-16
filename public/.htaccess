@@ -9,15 +9,10 @@
 # features. "+FollowSymLinks" must be enabled for this to work symbolically.
 
 <IfModule mod_rewrite.c>
-	Options +FollowSymLinks
-	RewriteEngine On
-</IfModule>
+     RewriteEngine on
 
-# For all files not found in the file system, reroute the request to the
-# "index.php" front controller, keeping the query string intact
+     RewriteCond %{REQUEST_FILENAME} !-f
+     RewriteCond %{REQUEST_FILENAME} !-d
 
-<IfModule mod_rewrite.c>
-	RewriteCond %{REQUEST_FILENAME} !-f
-	RewriteCond %{REQUEST_FILENAME} !-d
-	RewriteRule ^(.*)$ index.php/$1 [L]
+     RewriteRule ^(.*)$ index.php/$1 [L]
 </IfModule>

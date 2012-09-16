@@ -11,10 +11,10 @@ class Create_Users {
 	{
 		Schema::create('users', function($table){
 			$table->increments('id');
-        	$table->string('username', 50);
 			$table->string('email', 320);
     		$table->string('password', 50);
-    		$table->integer('role');
+    		$table->string('firstname', 50);
+    		$table->string('lastname', 50);
     		$table->boolean('active');
     		$table->timestamps();  
 		});
