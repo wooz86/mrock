@@ -8,5 +8,8 @@
 			<p class="intro-text" style="margin-top: 45px;">
 			</p>
 	</header>
-		Hello, {{ $firstname }} {{ $lastname }}.
+		<h2>Hello, {{ $firstname }} {{ $lastname }}.</h2>
+
+		<h4>Menu</h4>
+		<a href="<?php print URL::base(); ?>/admin/user/{{ $user_id }}/edit">Edit account</a>		
 @endsection

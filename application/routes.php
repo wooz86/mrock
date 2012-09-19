@@ -39,7 +39,8 @@ Route::controller('admin.home');
 Route::controller('home');
 Route::controller('user');
 
-Route::post('admin', array('before' => 'auth'));
+Route::any('admin*', array('before' => 'auth'));
+Route::get('admin/user/(:num)/edit', 'admin.user@edit');
 
 Route::get('user/login', 'user@index');
 

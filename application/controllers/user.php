@@ -25,7 +25,8 @@ class User_Controller extends Base_Controller
 
 	    if ($csrf_input === $token && Auth::attempt($userdata))
 	    {
-	    	
+	    	Session::put('user_id', Auth::user()->id);
+	    	Session::put('email', Auth::user()->email);
 	    	Session::put('firstname', Auth::user()->firstname);
 	    	Session::put('lastname', Auth::user()->lastname);
 
