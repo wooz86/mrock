@@ -28,7 +28,7 @@ class Home_Controller extends Base_Controller
 	|		{
 	|			return "This is the profile for user {$id}.";
 	|		}
-	| :P ;)
+	| 
 	*/
 
 	public function action_index()
