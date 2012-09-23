@@ -37,6 +37,10 @@ Route::controller('admin.gallery');
 Route::controller('admin.home');
 
 Route::controller('home');
+Route::controller('music');
+Route::controller('biography');
+Route::controller('gallery');
+Route::controller('contact');
 Route::controller('user');
 
 Route::any('admin*', array('before' => 'auth'));
@@ -49,6 +53,9 @@ Route::post('login', 'user@login');
 
 Route::get('logout', 'user@logout');
 Route::post('logout', 'user@logout');
+
+Route::get('contact/post_contact_form', 'contact@index');
+Route::post('contact/post_contact_form', 'contact@post_contact_form');
 
 
 

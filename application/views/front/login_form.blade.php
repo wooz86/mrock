@@ -12,11 +12,11 @@
     @endif
 
 	<h1>Login</h1>
-	<?php print Form::open('login', 'POST'); ?>
-	<?php print Form::text('email', Input::old('email')); ?><br>
-	<?php print Form::password('password'); ?><br>
-	<?php print Form::submit('Login'); ?><br>
-	<?php print Form::token(); ?>
-	<?php print Form::close(); ?>
+	{{ Form::open('login', 'POST') }}
+	{{ Form::text('email', Input::old('email')) }}
+	{{ Form::password('password') }}<br>
+	{{ Form::submit('Login') }}<br>
+	{{ Form::token() }}<br>
+	{{ Form::close() }}<br>
 
 @endsection
