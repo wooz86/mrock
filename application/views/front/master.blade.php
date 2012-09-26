@@ -52,6 +52,20 @@
 		<div class= "wrapper">
 			<img src="img/background2.jpg" alt="" class="background" />
 			<div class="container">
+
+				<div style="background: white; margin: 0 10px">
+					<strong>TEMPORÄR MENY</strong><br>
+				@foreach(Page::all() as $nav)
+					@if($nav->title == 'Home')
+						{{ HTML::link(URL::base(), $nav->title) }}
+					@else
+						{{ HTML::link(Str::lower($nav->title), $nav->title) }}
+					@endif
+				@endforeach
+				@if ( Auth::guest() )
+					{{ HTML::link('login', 'Login') }}
+				@endif
+			</div>
 				
 				<!-- Content
 				================================================== -->	
@@ -60,9 +74,7 @@
 				<!-- Footer
 				================================================== -->
 				
-				@if ( Auth::guest() )
-					{{ HTML::link('login', 'Login') }}
-				@endif
+				
 
 			</div><!-- /container -->
 		</div><!-- /wrapper -->
