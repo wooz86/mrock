@@ -46,10 +46,6 @@
 
 			<!-- Footer
 			================================================== -->
-			
-			@if ( !Auth::guest() )
-        		{{ HTML::link('logout', 'Logout') }}
-    		@endif
 
 		</div><!-- /container -->
 

@@ -10,7 +10,7 @@ class Admin_Home_Controller extends Admin_Base_Controller
 			'lastname' => Session::get('lastname'),
 		);
 		
-		return View::make('admin.index', $data);
+		return View::make('admin.home.index', $data);
 	}
 
 }
