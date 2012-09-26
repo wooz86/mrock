@@ -4,7 +4,7 @@
 		<!-- Basic Page Needs
 		================================================== -->
 		<meta charset="utf-8">
-		<title>FRONT</title>
+		<title>M-ROCK</title>
 		<meta name="description" content="">
 		<meta name="author" content="">
 		
@@ -15,8 +15,12 @@
 		<!-- CSS
   		================================================== -->
 		{{ HTML::style('css/base.css') }}
-		{{ HTML::style('css/skeleton.css') }}
+		<!--{{ HTML::style('css/skeleton.css') }}-->
+		{{ HTML::style('css/font-awesome.css') }}
 		{{ HTML::style('css/style.css') }}
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0-rc.2/jquery.mobile-1.2.0-rc.2.min.css" />
+<script src="http://code.jquery.com/jquery-1.8.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.2.0-rc.2/jquery.mobile-1.2.0-rc.2.min.js"></script>
 
 		 <!--[if lt IE 9]>
 			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -34,24 +38,36 @@
 
 		<!-- Primary Page Layout
 		================================================== -->
+  		
+		<!-- Top
+		================================================== -->
+		<div class="site-header">
+			<div class="container">
+				<div class="sixteen columns">
+					  <div class="one-third column alpha"><a href="#menu"><i class="icon-reorder"></i></a></div>
+					  <div class="one-third column brand">M-ROCK</div>
+					  <div class="one-third column omega"></div>
+				</div>
+			</div>
+		</div>
 
-		<div class="container">
+		<div class= "wrapper">
+			<img src="img/background2.jpg" alt="" class="background" />
+			<div class="container">
+				
+				<!-- Content
+				================================================== -->	
+				@yield('content')
 
-			<!-- Top
-			================================================== -->
-			
-			<!-- Content
-			================================================== -->	
-			@yield('content')
+				<!-- Footer
+				================================================== -->
+				
+				@if ( Auth::guest() )
+					{{ HTML::link('login', 'Login') }}
+				@endif
 
-			<!-- Footer
-			================================================== -->
-			
-			@if ( Auth::guest() )
-				{{ HTML::link('login', 'Login') }}
-			@endif
-
-		</div><!-- /container -->
+			</div><!-- /container -->
+		</div><!-- /wrapper -->
 
 
 	  
