@@ -53,7 +53,7 @@
 			<img src="img/background2.jpg" alt="" class="background" />
 			<div class="container">
 
-				<div style="background: white; margin: 0 10px">
+				<div style="background: white; margin: 0 10px; padding: 10px">
 					<strong>TEMPORÄR MENY</strong><br>
 				@foreach(Page::all() as $nav)
 					@if($nav->title == 'Home')
