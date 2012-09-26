@@ -32,19 +32,25 @@
 |
 */
 
-
-Route::controller('admin.gallery');
 Route::controller('admin.home');
+Route::controller('admin.gallery');
+Route::controller('admin.user');
+
 
 Route::controller('home');
 Route::controller('music');
 Route::controller('biography');
+Route::controller('gigs');
 Route::controller('gallery');
 Route::controller('contact');
 Route::controller('user');
 
 Route::any('admin*', array('before' => 'auth'));
 Route::get('admin/user/(:num)/edit', 'admin.user@edit');
+
+Route::get('admin/home/edit/intro_text', 'admin.home@edit_intro_text');
+Route::post('admin/home/edit/intro_text', 'admin.home@save_intro_text');
+Route::get('admin/home/edit/intro_image', 'admin.home@edit_intro_image');
 
 Route::get('user/login', 'user@index');
 
