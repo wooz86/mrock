@@ -15,12 +15,10 @@
 		<!-- CSS
   		================================================== -->
 		{{ HTML::style('css/base.css') }}
-		<!--{{ HTML::style('css/skeleton.css') }}-->
+		{{ HTML::style('css/skeleton.css') }}
 		{{ HTML::style('css/font-awesome.css') }}
 		{{ HTML::style('css/style.css') }}
-		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0-rc.2/jquery.mobile-1.2.0-rc.2.min.css" />
-<script src="http://code.jquery.com/jquery-1.8.1.min.js"></script>
-<script src="http://code.jquery.com/mobile/1.2.0-rc.2/jquery.mobile-1.2.0-rc.2.min.js"></script>
+		<script src="http://code.jquery.com/jquery-1.8.1.min.js"></script>
 
 		 <!--[if lt IE 9]>
 			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
