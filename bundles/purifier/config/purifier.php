@@ -14,8 +14,8 @@ return array(
     'preload'  => false,
     'settings' => array(
         'HTML.Doctype'             => 'XHTML 1.0 Strict',
-        'HTML.Allowed'             => 'div,b,strong,i,em,u,a[href|title],ul,ol,li,p[style],br,span[style],img[width|height|alt|src]',
-        'CSS.AllowedProperties'    => 'font,font-size,font-weight,font-style,font-family,text-decoration,padding-left,color,background-color,text-align',
+        'HTML.Allowed'             => 'strong,i,em,u,a[href|title],ul,ol,li,p,br',
+        'CSS.AllowedProperties'    => '',
         'AutoFormat.AutoParagraph' => true,
         'AutoFormat.RemoveEmpty'   => true
     ),

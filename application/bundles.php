@@ -34,7 +34,7 @@
 */
 
 return array(
-
-	'docs' => array('handles' => 'docs'),
-	'swiftmailer' => array('auto'=>true),
+	'docs' 			=> array('handles' => 'docs'),
+	'swiftmailer' 	=> array('auto' => true),
+	'purifier' 		=> array('auto' => true),
 );
