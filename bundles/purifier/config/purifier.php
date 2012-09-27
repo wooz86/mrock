@@ -11,12 +11,15 @@
 return array(
 
     'finalize' => true,
-    'preload'  => false,
+    'preload'  => true,
     'settings' => array(
-        'HTML.Doctype'             => 'XHTML 1.0 Strict',
-        'HTML.Allowed'             => 'strong,i,em,u,a[href|title],ul,ol,li,p,br',
-        'CSS.AllowedProperties'    => '',
-        'AutoFormat.AutoParagraph' => true,
-        'AutoFormat.RemoveEmpty'   => true
+        'HTML.Doctype'             		=> 'XHTML 1.1 Transitional',
+        'HTML.Allowed'             		=> 'strong,i,em,u,a[href|title],ul,ol,li,p',
+        'CSS.AllowedProperties'			=> '',
+        'HTML.ForbiddenElements'		=> 'span',
+        'HTML.ForbiddenAttributes'		=> 'style',
+        'AutoFormat.AutoParagraph' 		=> true,
+        'AutoFormat.RemoveEmpty'		=> true,
+        'AutoFormat.Linkify' 			=> true,
     ),
 )

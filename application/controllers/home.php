@@ -36,6 +36,8 @@ class Home_Controller extends Base_Controller
 		$page = Page::find(1);
 		$text = Content::where('page_id', '=', 1)->get();
 
+		// $page_html_clean = Purifier::clean($page);
+
 		$data = array(
 			'main_text' => '',
 			'side_text' => ''
@@ -49,7 +51,11 @@ class Home_Controller extends Base_Controller
 			foreach($text as $part)
 			{
 				if($part->type == 'main')
+				{
+					$part->title = Purifier::clean($part->title);
+					$part->content = Purifier::clean($part->content);
 					$data['main_text'] = $part;
+				}
 
 				if($part->type == 'side')
 					$data['side_text'] = $part;

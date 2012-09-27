@@ -50,12 +50,15 @@ class Admin_Home_Controller extends Admin_Base_Controller
 
 			$html_clean = Purifier::clean($input);
 
+
+
 			if($validation->fails())
 			{
 				return Redirect::to('admin/home/edit/intro_text')
 					->with_errors($validation->errors)
 					->with_input();
 			}
+
 
 			$intro_text = Content::find(1);
 
