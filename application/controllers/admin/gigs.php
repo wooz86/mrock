@@ -4,16 +4,13 @@ class Gigs_Controller extends Base_Controller
 {
 	public function action_index()
 	{
-		// $page = Page::find(4);
-		// $text = Content::where('page_id', '=', 4)->get();
-		// $gigs = Gig::where('date', '>=', time());
-		$gigs = Gig::with('venue')->where('venue_id', '=', 1)->get();
-
-		dd($gigs);
+		$page = Page::find(4);
+		$text = Content::where('page_id', '=', 4)->get();
+		$gigs = Gig::where('date', '>=', time());
 
 		$data = array(
 			'main_text' => '',
-			'side_text' => '',
+			'side_text' => ''
 		);
 
 		if(!empty($page))
@@ -34,7 +31,7 @@ class Gigs_Controller extends Base_Controller
 		if(!empty($gigs))
 			$data['gigs'] = $gigs;
 
-		return View::make('front.gigs.index', $data);
+		return View::make('admin.gigs.index', $data);
 	}
 
 }

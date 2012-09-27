@@ -18,6 +18,32 @@
 				<h2>{{ $side_text->title }}</h2>
 				{{ $side_text->content }}
 			@endif
+
+			@if(!empty($gigs))
+				<table>
+					<th>
+						<tr>
+							<td>Venue</td>
+							<td>Date</td>
+							<td>Tickets</td>
+						</tr>
+					</th>
+					<tbody>
+						@foreach($gigs as $gig)
+							<tr>
+								<td>{{ $gig->venue_id }}</td>
+								<td>{{ $gig->date }}</td>
+								<td>{{ $gig->ticket_url }}</td>
+							</tr>
+						@endforeach
+					</tbody>
+				</table>
+
+			@endif
+
+
+
+
 		</div>
 
 		<div class="sixteen columns content-media">

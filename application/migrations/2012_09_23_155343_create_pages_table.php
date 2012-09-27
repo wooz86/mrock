@@ -5,6 +5,9 @@ class Create_Pages_Table {
 	public function up()
     {
 		Schema::create('pages', function($table) {
+
+            $table->engine = 'InnoDB';
+            
 			$table->increments('id');
 			$table->string('title');
 			$table->string('description');

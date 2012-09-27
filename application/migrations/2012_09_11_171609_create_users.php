@@ -10,14 +10,24 @@ class Create_Users {
 	public function up()
 	{
 		Schema::create('users', function($table){
+
+			$table->engine = 'InnoDB';
+			
 			$table->increments('id');
-			$table->string('email', 320);
+			$table->string('email', 320)->unique();
     		$table->string('password', 50);
     		$table->string('firstname', 50);
     		$table->string('lastname', 50);
     		$table->boolean('active');
     		$table->timestamps();  
 		});
+		DB::table('users')->insert(array(
+            'email' 	=> 'a@a.com',
+            'password' 	=> Hash::make('a'),
+            'firstname' => 'Admin',
+            'lastname'	=> 'Aronsson',
+            'active'	=> 0,
+        ));
 	}
 
 	/**
