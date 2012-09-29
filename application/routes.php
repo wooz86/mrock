@@ -36,7 +36,7 @@
 Route::controller('admin.home');
 Route::controller('admin.gallery');
 Route::controller('admin.gigs');
-Route::controller('admin.venue');
+Route::controller('admin.venues');
 Route::controller('admin.user');
 
 // Front controllers
@@ -58,16 +58,16 @@ Route::post('admin/home/edit/intro_text', 'admin.home@save_intro_text');
 Route::get('admin/home/edit/intro_image', 'admin.home@edit_intro_image');
 
 Route::get('admin/gig/(:num)/edit', 'admin.gigs@edit');
-Route::post('admin/gig/add', 'admin.gigs@save');
+Route::post('admin/gig/save', 'admin.gigs@save');
 
-Route::get('admin/venues', 'admin.venue@index');
-Route::post('admin/venue/save', 'admin.venue@save');
+Route::get('admin/venue/(:num)/edit', 'admin.venues@edit');
+Route::post('admin/venue/save', 'admin.venues@save');
 
 
 // Front routes
 Route::get('user/login', 'user@index');
 
-Route::get('login', 'user@index') ;
+Route::get('login', 'user@index');
 Route::post('login', 'user@login');
 
 Route::get('logout', 'user@logout');

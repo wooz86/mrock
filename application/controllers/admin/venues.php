@@ -1,6 +1,6 @@
 <?php
 
-class Admin_Venue_Controller extends Admin_Base_Controller 
+class Admin_Venues_Controller extends Admin_Base_Controller 
 {
 	public function action_index()
 	{
@@ -31,7 +31,7 @@ class Admin_Venue_Controller extends Admin_Base_Controller
 
 		$validation = Validator::make($input, $rules);
 
-		//CSRF Protection
+		// CSRF Protection
 	    $token = Session::token();
 	    $csrf_input = Input::get('csrf_token');
 
@@ -58,11 +58,18 @@ class Admin_Venue_Controller extends Admin_Base_Controller
 		return View::make('admin.venues.index', $data);
 	}
 
-	public function action_edit()
+	public function action_edit($id)
 	{
-		$data = array(
-		);
+		$data = array();
 
+		$venue = Venue::find($id);
+
+		if(!empty($venue))
+		{
+			$data['venue'] = $venue;
+		}
+
+		
 		return View::make('admin.venues.edit_venue_form', $data);
 	}
 }

@@ -46,7 +46,7 @@
 								<td>{{ $venue->title }}</td>
 							@endif
 							<td>{{ $venue->url }}</td>
-							<td>{{HTML::link('url', 'Edit')}} {{HTML::link('url', 'Delete')}}</td>
+							<td>{{HTML::link('admin/venue/' . $venue->id . '/edit', 'Edit')}} {{HTML::link('url', 'Delete')}}</td>
 						</tr>
 					@endforeach
 				</tbody>

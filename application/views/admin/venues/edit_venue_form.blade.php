@@ -6,8 +6,8 @@
 		<h2>Edit venue</h2>
 
 			{{ Form::open('admin/venue/edit', 'POST') }}
-			{{ Form::text('Venue title') }}
-			{{ Form::text('url') }}
+			{{ Form::text('Venue title', $venue->title) }}
+			{{ Form::text('url', $venue->url) }}
 			{{ Form::token() }}
 			{{ Form::submit('Update') }}
 

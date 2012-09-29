@@ -10,8 +10,6 @@ class Admin_Gigs_Controller extends Base_Controller
 		$gigs = Gig::with('venue')->all();
 		$venues = Venue::get(array('id', 'title'));
 
-		// dd($venues);
-
 		$data = array(
 			'main_text' => '',
 			'side_text' => ''
@@ -45,13 +43,6 @@ class Admin_Gigs_Controller extends Base_Controller
 
 
 		return View::make('admin.gigs.index', $data);
-	}
-
-	public function action_add()
-	{
-		$data = array();
-
-		return View::make('admin.gigs.add_gig_form', $data);	
 	}
 
 	public function action_edit($id)
