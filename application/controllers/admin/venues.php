@@ -69,7 +69,6 @@ class Admin_Venues_Controller extends Admin_Base_Controller
 			$data['venue'] = $venue;
 		}
 
-		
 		return View::make('admin.venues.edit_venue_form', $data);
 	}
 }
