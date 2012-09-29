@@ -5,16 +5,16 @@
 
 		<div class="sixteen columns content-text">
 			<img src="img/band.jpg" />
-			@if($page)
+			@if(!empty($page))
 				<h1>{{ $page->title }}</h1>
 			@endif
 
-			@if($main_text)
+			@if(!empty($main_text))
 				<h1>{{ $main_text->title }}</h1>
 				{{ $main_text->content }}<p><a href="#">Read More</a></p>
 			@endif
 
-			@if($side_text)
+			@if(!empty($side_text))
 				<h2>{{ $side_text->title }}</h2>
 				{{ $side_text->content }}
 			@endif
@@ -31,7 +31,11 @@
 					<tbody>
 						@foreach($gigs as $gig)
 							<tr>
-								<td>{{ $gig->venue_id }}</td>
+								@if(!empty($gig->venue->url))
+									<td>{{ HTML::link($gig->venue->url, $gig->venue->title) }}</td>
+								@else
+									<td>{{ $gig->venue->title }}</td>
+								@endif
 								<td>{{ $gig->date }}</td>
 								<td>{{ $gig->ticket_url }}</td>
 							</tr>

@@ -7,7 +7,7 @@ class Venue extends Eloquent
 
 	public function gig()
 	{
-		$this->has_many('Gig');
+		return $this->has_one('gig');
 	}
 
 }

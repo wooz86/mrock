@@ -17,7 +17,7 @@ class User_Controller extends Base_Controller
 		$userdata = array(
         	'username' => Input::get('email'),
         	'password' => Input::get('password')
-	    );
+	     );
 
 		//CSRF Protection
 	    $token = Session::token();

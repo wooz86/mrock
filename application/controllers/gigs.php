@@ -4,12 +4,10 @@ class Gigs_Controller extends Base_Controller
 {
 	public function action_index()
 	{
-		// $page = Page::find(4);
-		// $text = Content::where('page_id', '=', 4)->get();
+		$page = Page::find(4);
+		$text = Content::where('page_id', '=', 4)->get();
 		// $gigs = Gig::where('date', '>=', time());
-		$gigs = Gig::with('venue')->where('venue_id', '=', 1)->get();
-
-		dd($gigs);
+		$gigs = Gig::with('venue')->all();
 
 		$data = array(
 			'main_text' => '',

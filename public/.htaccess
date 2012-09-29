@@ -9,6 +9,11 @@
 # features. "+FollowSymLinks" must be enabled for this to work symbolically.
 
 <IfModule mod_rewrite.c>
+	Options +FollowSymLinks
+	RewriteEngine On
+</IfModule>
+
+<IfModule mod_rewrite.c>
      RewriteEngine on
 
      RewriteCond %{REQUEST_FILENAME} !-f

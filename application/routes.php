@@ -32,11 +32,14 @@
 |
 */
 
+// Admin controllers
 Route::controller('admin.home');
 Route::controller('admin.gallery');
+Route::controller('admin.gigs');
+Route::controller('admin.venue');
 Route::controller('admin.user');
 
-
+// Front controllers
 Route::controller('home');
 Route::controller('music');
 Route::controller('biography');
@@ -45,6 +48,8 @@ Route::controller('gallery');
 Route::controller('contact');
 Route::controller('user');
 
+
+// Admin routes 
 Route::any('admin*', array('before' => 'auth'));
 Route::get('admin/user/(:num)/edit', 'admin.user@edit');
 
@@ -52,6 +57,14 @@ Route::get('admin/home/edit/intro_text', 'admin.home@edit_intro_text');
 Route::post('admin/home/edit/intro_text', 'admin.home@save_intro_text');
 Route::get('admin/home/edit/intro_image', 'admin.home@edit_intro_image');
 
+Route::get('admin/gig/(:num)/edit', 'admin.gigs@edit');
+Route::post('admin/gig/add', 'admin.gigs@save');
+
+Route::get('admin/venues', 'admin.venue@index');
+Route::post('admin/venue/save', 'admin.venue@save');
+
+
+// Front routes
 Route::get('user/login', 'user@index');
 
 Route::get('login', 'user@index') ;
@@ -93,10 +106,10 @@ Event::listen('500', function()
 	return Response::error('500');
 });
 
-Event::listen('laravel.query', function($sql)
-{
-	var_dump($sql);
-});
+// Event::listen('laravel.query', function($sql)
+// {
+// 	var_dump($sql);
+// });
 
 /*
 |--------------------------------------------------------------------------

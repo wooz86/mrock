@@ -15,7 +15,7 @@ class Create_Users {
 			
 			$table->increments('id');
 			$table->string('email', 320)->unique();
-    		$table->string('password', 50);
+    		$table->string('password', 60);
     		$table->string('firstname', 50);
     		$table->string('lastname', 50);
     		$table->boolean('active');

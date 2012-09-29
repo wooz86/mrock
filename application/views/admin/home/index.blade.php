@@ -24,16 +24,14 @@
 
 		<h5>Gigs</h5>
 		<ul>
-			<li>{{ HTML::link('admin/gigs', '') }}</li>
-			<li>{{ HTML::link('admin/', '') }}</li>
-			<li>{{ HTML::link('admin/', '') }}</li>
+			<li>{{ HTML::link('admin/gigs', 'Manage gigs') }}</li>
+			<li>{{ HTML::link('admin/venues', 'Manage venues') }}</li>
 		</ul>
 
 		<h5>Gallery</h5>
 		<ul>
-			<li>{{ HTML::link('admin/', '') }}</li>
-			<li>{{ HTML::link('admin/', '') }}</li>
-			<li>{{ HTML::link('admin/', '') }}</li>
+			<li>{{ HTML::link('admin/', 'List images') }}</li>
+			<li>{{ HTML::link('admin/', 'Add image') }}</li>
 		</ul>
 
 		<h5>Account</h5>

@@ -7,7 +7,7 @@ class Gig extends Eloquent
 
 	public function venue()
 	{
-		$this->belongs_to('Venue');
+		return $this->belongs_to('venue');
 	}
 
 }
