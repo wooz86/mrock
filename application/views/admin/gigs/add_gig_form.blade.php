@@ -37,7 +37,6 @@
 				</tr>
 			</tbody>
 		</table>
-		{{ Form::token() }}
 		{{ Form::submit('Add gig') }}
 
 	</div>

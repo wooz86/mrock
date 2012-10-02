@@ -8,7 +8,7 @@ class Content extends Eloquent
 
 	public function page()
 	{
-		$this->belongs_to('Page');
+		return $this->belongs_to('Page');
 	}
     
 }

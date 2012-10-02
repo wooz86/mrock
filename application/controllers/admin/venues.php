@@ -5,8 +5,13 @@ class Admin_Venues_Controller extends Admin_Base_Controller
 	public function action_index()
 	{
 		$data = array();
+		$venues = Venue::all();
 
-		$venues = Venue::get(array('id', 'title', 'url'));
+		foreach($venues as $venue)
+		{
+			$venue->created_at = date('Y-m-d H:i', strtotime($venue->created_at));
+			$venue->updated_at = date('Y-m-d H:i', strtotime($venue->updated_at));
+		}
 
 		if(!empty($venues))
 			$data['venues'] = $venues;
@@ -24,44 +29,26 @@ class Admin_Venues_Controller extends Admin_Base_Controller
 			'url' => Input::get('url'),
 		);
 
-		$rules = array(
-			'title' => 'required|unique:venues|alpha_num|max:200',
-			'url' => 'required|url',
-		);
+		$validation = Venue::validate($input);
 
-		$validation = Validator::make($input, $rules);
+    	if($validation !== true)
+    	{
+    		return Redirect::to('admin/venues')
+				->with_errors($validation->errors)
+				->with_input();
+    	}
 
-		// CSRF Protection
-	    $token = Session::token();
-	    $csrf_input = Input::get('csrf_token');
+    	if(Venue::db_save($input, false) == false)
+    		Log::write('error', 'Venue Model: db_save() failed.');
 
-	    if ($csrf_input === $token)
-	    {
-	    	if($validation->fails())
-	    	{
-	    		return Redirect::to('admin/venues')
-					->with_errors($validation->errors)
-					->with_input();
-	    	}
-	    	
-	    	$venue = new Venue;
-	    	$venue->title = Input::get('title');
-	    	$venue->url = Input::get('url');
-	    	$venue->save();
+    	Session::flash('success', 'Venue added.');
 
-	    	Session::flash('success', 'Venue added.');
-
-	    	return Redirect::to('admin/venues');
-		}
-
-
-		return View::make('admin.venues.index', $data);
+    	return Redirect::to('admin/venues');
+		
 	}
 
 	public function action_edit($id)
 	{
-		$data = array();
-
 		$venue = Venue::find($id);
 
 		if(!empty($venue))
@@ -70,5 +57,32 @@ class Admin_Venues_Controller extends Admin_Base_Controller
 		}
 
 		return View::make('admin.venues.edit_venue_form', $data);
+	}
+
+	public function action_update()
+	{
+		$input = array(
+			'id' 	=> Input::get('id'),
+			'title' => Input::get('title'),
+			'url' 	=> Input::get('url'),
+		);
+
+		$validation = Venue::validate($input, false);
+
+    	if($validation !== true)
+    	{
+    		return Redirect::to('admin/venue/' . Input::get('id') . '/edit')
+				->with_errors($validation->errors)
+				->with_input();
+    	}
+    	
+    	if(Venue::db_update($input) == false)
+    	{
+    		Log::write('error', 'Venue Model: db_update() failed.');
+    		return Redirect::to('admin/venues');
+    	}
+    	
+		Session::flash('success', 'Venue updated.');
+		return Redirect::to('admin/venues');
 	}
 }

@@ -23,7 +23,6 @@
 			Name:{{ Form::text('name', Input::old('name')) }}
 			E-mail{{ Form::text('email', Input::old('email')) }}
 			Message{{ Form::textarea('message', Input::old('message')) }}
-			{{ Form::token() }}
 			{{ Form::reset('Reset') }}
 			{{ Form::submit('Send') }}
 			{{ Form::close() }}

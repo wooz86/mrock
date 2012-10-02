@@ -61,6 +61,7 @@ Route::get('admin/gig/(:num)/edit', 'admin.gigs@edit');
 Route::post('admin/gig/save', 'admin.gigs@save');
 
 Route::get('admin/venue/(:num)/edit', 'admin.venues@edit');
+Route::post('admin/venue/update', 'admin.venues@update');
 Route::post('admin/venue/save', 'admin.venues@save');
 
 

@@ -22,7 +22,6 @@
 		{{ Form::open('admin/venue/save', 'POST') }}
 		{{ Form::text('title', Input::old('title'), array('placeholder' => 'Venue title')) }}
 		{{ Form::text('url', Input::old('url'), array('placeholder' => 'Venue URL')) }}
-		{{ Form::token() }}
 		{{ Form::submit('Add venue') }}
 
 		<hr>
@@ -34,6 +33,8 @@
 					<tr>
 						<td>Venue</td>
 						<td>URL</td>
+						<td>Created at</td>
+						<td>Updated at</td>
 						<td>Manage</td>
 					</tr>
 				</th>
@@ -46,6 +47,8 @@
 								<td>{{ $venue->title }}</td>
 							@endif
 							<td>{{ $venue->url }}</td>
+							<td>{{ $venue->created_at }}</td>
+							<td>{{ $venue->updated_at }}</td>
 							<td>{{HTML::link('admin/venue/' . $venue->id . '/edit', 'Edit')}} {{HTML::link('url', 'Delete')}}</td>
 						</tr>
 					@endforeach

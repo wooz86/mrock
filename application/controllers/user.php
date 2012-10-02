@@ -19,11 +19,7 @@ class User_Controller extends Base_Controller
         	'password' => Input::get('password')
 	     );
 
-		//CSRF Protection
-	    $token = Session::token();
-	    $csrf_input = Input::get('csrf_token');
-
-	    if ($csrf_input === $token && Auth::attempt($userdata))
+	    if (Auth::attempt($userdata))
 	    {
 	    	Session::put('user_id', Auth::user()->id);
 	    	Session::put('email', Auth::user()->email);

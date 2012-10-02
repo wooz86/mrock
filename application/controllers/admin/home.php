@@ -30,47 +30,37 @@ class Admin_Home_Controller extends Admin_Base_Controller
 
 	public function action_save_intro_text()
 	{
-		//CSRF Protection
-	    $token = Session::token();
-	    $csrf_input = Input::get('csrf_token');
+		$input = array(
+        	'intro_text_title'	=> Input::get('intro_text_title'),
+        	'intro_text' 		=> Input::get('intro_text'),
+	    );
 
-	    if ($csrf_input === $token)
-	    {
-   			$input = array(
-	        	'intro_text_title' => Input::get('intro_text_title'),
-	        	'intro_text' 		=> Input::get('intro_text'),
-		    );
+	    $rules = array(
+		    'intro_text_title'  => 'required|alpha_dash|max:20',
+		    'intro_text' 		=> 'required|max:2000',
+		);
 
-		    $rules = array(
-			    'intro_text_title'  => 'required|alpha_dash|max:20',
-			    'intro_text' 		=> 'required|max:2000',
-			);
+		$validation = Validator::make($input, $rules);
 
-			$validation = Validator::make($input, $rules);
-
-			$html_clean = Purifier::clean($input);
+		$html_clean = Purifier::clean($input);
 
 
 
-			if($validation->fails())
-			{
-				return Redirect::to('admin/home/edit/intro_text')
-					->with_errors($validation->errors)
-					->with_input();
-			}
-
-
-			$intro_text = Content::find(1);
-
-			$intro_text->title = $html_clean['intro_text_title'];
-			$intro_text->content = $html_clean['intro_text'];
-			$intro_text->save();
-
-			Session::flash('success', 'Intro text updated.');
-
-			return Redirect::to('admin/home/edit/intro_text');
-
+		if($validation->fails())
+		{
+			return Redirect::to('admin/home/edit/intro_text')
+				->with_errors($validation->errors)
+				->with_input();
 		}
+
+		$intro_text = Content::find(1);
+		$intro_text->title = $html_clean['intro_text_title'];
+		$intro_text->content = $html_clean['intro_text'];
+		$intro_text->save();
+
+		Session::flash('success', 'Intro text updated.');
+
+		return Redirect::to('admin/home/edit/intro_text');
 	}
 
 	public function action_edit_intro_image()

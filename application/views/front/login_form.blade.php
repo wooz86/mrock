@@ -15,7 +15,6 @@
 			{{ Form::text('email', Input::old('email')) }}
 			{{ Form::password('password') }}<br>
 			{{ Form::submit('Login') }}<br>
-			{{ Form::token() }}<br>
 			{{ Form::close() }}<br>
 		</div>
 

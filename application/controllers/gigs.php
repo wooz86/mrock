@@ -6,7 +6,7 @@ class Gigs_Controller extends Base_Controller
 	{
 		$page = Page::find(4);
 		$text = Content::where('page_id', '=', 4)->get();
-		// $gigs = Gig::where('date', '>=', time());
+		// $gigs = Gig::with('venue')->where('date', '>=', time())->get();
 		$gigs = Gig::with('venue')->all();
 
 		$data = array(

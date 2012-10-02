@@ -7,7 +7,7 @@ class Page extends Eloquent
 
 	public function content()
 	{
-		$this->has_many('Content');
+		return $this->has_many('Content');
 	}
 
 }
