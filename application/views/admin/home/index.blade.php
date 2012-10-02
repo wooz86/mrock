@@ -11,10 +11,6 @@
 			<li>{{ HTML::link('admin/home/edit/intro_video', 'Edit YouTube video') }}</li>
 		</ul>
 
-		<h5>Music</h5>
-			<br>
-			<br>
-
 		<h5>Biography</h5>
 		<ul>
 			<li>{{ HTML::link('admin/biography/', 'Edit band image') }}</li>

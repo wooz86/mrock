@@ -16,8 +16,10 @@ class Content extends Eloquent
 		if(strpos($video_url, 'youtube.com/embed/') !== false)
 			preg_match('/[\\/]embed\\/([^\\?\\&]+)/', $video_url, $matches);
 
-		if(strpos($video_url, 'youtu.be/') !== false)
-			preg_match('/[\\/]([^\\?\\&]+)/', $video_url, $matches);
+		if($start = strpos($video_url, 'youtu.be/'))
+		{
+			$matches[1] = substr($video_url, $start + 9, 11);
+		}
 
 		else
 			preg_match('/[\\?\\&]v=([^\\?\\&]+)/', $video_url, $matches);

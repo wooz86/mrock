@@ -3,7 +3,7 @@
 @section('content')
 	<div class="container">
 
-		<h2>Edit intro text</h2>
+		<h2>Edit intro video</h2>
 
 		@if(Session::has('success'))
 			{{ Session::get('success') }}
