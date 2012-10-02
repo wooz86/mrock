@@ -28,7 +28,7 @@ class Admin_Home_Controller extends Admin_Base_Controller
 		return View::make('admin.home.edit_intro_text_form', $data);
 	}
 
-	public function action_save_intro_text()
+	public function action_update_intro_text()
 	{
 		$input = array(
         	'intro_text_title'	=> Input::get('intro_text_title'),
@@ -66,6 +66,37 @@ class Admin_Home_Controller extends Admin_Base_Controller
 	public function action_edit_intro_image()
 	{
 		
+	}
+
+	public function action_update_intro_image()
+	{
+		
+	}
+
+	public function action_edit_intro_video()
+	{
+		$data = array();
+
+		$intro_video = Content::find(3);
+
+		if(!empty($intro_video))
+			$data['intro_video'] = $intro_video;
+
+		return View::make('admin.home.edit_intro_video_form', $data);	
+	}
+
+	public function action_update_intro_video()
+	{
+		if(Input::has('intro_video_url'))
+		{
+			$input['intro_video_url'] => Input::get('intro_video_url');
+
+			$rules = array(
+				'content' => 'required|url',
+			);
+
+			dd(Content::get_youtube_embed(Input::get('intro_video_url')));
+		}
 	}
 
 }

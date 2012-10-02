@@ -59,6 +59,9 @@ class Home_Controller extends Base_Controller
 
 				if($part->type == 'side')
 					$data['side_text'] = $part;
+
+				if($part->type == 'intro_video')
+					$data['intro_video'] = $part;
 			}
 		}
 		return View::make('front.home.index', $data);

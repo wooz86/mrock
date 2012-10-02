@@ -22,7 +22,11 @@
 		</div>
 
 		<div class="sixteen columns content-media">
-			<iframe src="http://www.youtube.com/embed/LjLPqIL2HHU" frameborder="0" allowfullscreen></iframe>
+			@if(!empty($intro_video))
+				<iframe src="{{ $intro_video->content }}" frameborder="0" allowfullscreen></iframe>
+			@else
+				<iframe src="http://www.youtube.com/embed/LjLPqIL2HHU" frameborder="0" allowfullscreen></iframe>
+			@endif
 		</div>
 
 		<div class="sixteen columns content-text">

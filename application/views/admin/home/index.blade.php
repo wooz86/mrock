@@ -8,7 +8,7 @@
 		<ul>
 			<li>{{ HTML::link('admin/home/edit/intro_image', 'Edit intro image') }}</li>
 			<li>{{ HTML::link('admin/home/edit/intro_text', 'Edit intro text') }}</li>
-			<li>{{ HTML::link('admin/home/', '') }}</li>
+			<li>{{ HTML::link('admin/home/edit/intro_video', 'Edit YouTube video') }}</li>
 		</ul>
 
 		<h5>Music</h5>
