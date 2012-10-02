@@ -19,12 +19,11 @@ class Content extends Eloquent
 		if(strpos($video_url, 'youtu.be/') !== false)
 			preg_match('/[\\/]([^\\?\\&]+)/', $video_url, $matches);
 
-
 		else
 			preg_match('/[\\?\\&]v=([^\\?\\&]+)/', $video_url, $matches);
 
 		if(!empty($matches))
-			return $matches;
+			return $matches[1];
 		
 		return false;
 	}

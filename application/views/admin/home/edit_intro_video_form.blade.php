@@ -17,9 +17,6 @@
 			</ul>
 		@endif
 
-		<p><strong>Please note!</strong></p>
-		<p>The URL to the Youtube video should follow this pattern: http://www.youtube.com/watch?v=mRitfbhITLM. Not correct: http://www.youtube.com/embed/mRitfbhITLM
-
 		@if(!empty($intro_video))
 			{{ Form::open('admin/home/edit/intro_video', 'POST') }}
 			{{ Form::text('intro_video_url', $intro_video->content) }}

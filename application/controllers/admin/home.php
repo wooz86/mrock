@@ -89,13 +89,39 @@ class Admin_Home_Controller extends Admin_Base_Controller
 	{
 		if(Input::has('intro_video_url'))
 		{
-			$input['intro_video_url'] => Input::get('intro_video_url');
+			$input['content'] = Input::get('intro_video_url');
 
 			$rules = array(
 				'content' => 'required|url',
 			);
 
-			dd(Content::get_youtube_embed(Input::get('intro_video_url')));
+			$validation = Validator::make($input, $rules);
+
+			if($validation->fails())
+			{
+				return Redirect::to('admin/home/edit/intro_video')
+					->with_errors($validation->errors)
+					->with_input();
+			}
+
+			$video_id = Content::get_youtube_embed(Input::get('intro_video_url'));
+
+			if($video_id !== false)
+				$input['content'] = 'http://www.youtube.com/embed/' . $video_id;
+			else
+				return Redirect::to('admin/home/edit/intro_video');
+
+			$intro_video = Content::find(3);
+			$intro_video->content = $input['content'];
+
+			if($intro_video->save() == false)
+			{
+				Log::write('error', 'Could not save the new intro video url');
+				return Redirect::to('admin/home/edit/intro_video');
+			}
+
+			Session::flash('success', 'Intro video updated.');
+			return Redirect::to('admin/home/edit/intro_video');
 		}
 	}
 
