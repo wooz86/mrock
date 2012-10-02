@@ -42,7 +42,8 @@
 						@endforeach
 					</tbody>
 				</table>
-
+			@else
+				<p>No gigs added.</p>
 			@endif
 
 
