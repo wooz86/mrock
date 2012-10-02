@@ -14,7 +14,7 @@ class Create_Users {
 			$table->engine = 'InnoDB';
 			
 			$table->increments('id');
-			$table->string('email', 320)->unique();
+			$table->string('email', 255)->unique();
     		$table->string('password', 60);
     		$table->string('firstname', 50);
     		$table->string('lastname', 50);
