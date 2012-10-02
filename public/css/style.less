@@ -1,9 +1,11 @@
-@base: #f938ab;
+@linkcolor: #fff;
+@headercolor: #e7572b;
 
 /* #Site Styles
 ================================================== */
 
 body {
+  color: #ccc;
 }
 
 img {
@@ -16,14 +18,27 @@ strong {
 }
 
 iframe {
-    min-width: 940px;
-    height: 529px;
-    padding: 0;
-    margin: 0;
+  min-width: 940px;
+  height: 529px;
+  padding: 0;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, iframe, span {
+  color: @headercolor;
 }
 
 a {
   text-decoration: none;
+  color: @linkcolor;
+
+  &:visited {
+    color: @linkcolor;
+  }
+
+  &:hover {
+    color: #fff;
+  }
 }
 
 .wrapper {
@@ -38,18 +53,46 @@ a {
         height:100%;
         z-index: -4;
     }
+
+    > .container {
+      background-color: rgba(0,0,0,0.8);
+      .drop-shadow(0,0, 20px, 0.7);
+    }
 }
 
 
 .site-header {
-    background: #000;
-    margin-bottom: 20px;
-    height: 40px;
-    overflow: hidden;
+
+    &.mobile {
+      display: none;
+      background: #000;
+      margin-bottom: 20px;
+      height: 40px;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    &.desktop {
+
+      .nav {
+
+        overflow: hidden;
+        width: 100%;
+        clear: both;
+        text-align: center;
+
+        li {
+          background-color: #111;
+          padding: 20px;
+          float: left;
+        }
+      }
+    }
 
     i {
       font-size: 24px;
       margin-top: 10px;
+      color: #fff;
     }
 
     .brand {
@@ -57,29 +100,8 @@ a {
       text-align: center;
     }
 
-    * {
-        color: #fff;
-    }
-
-}
-
-.content-text {
-    background: #fff;
-    margin-bottom: 20px;
-    overflow: hidden;
-    .drop-shadow(0, 0, 40px, 0.3);
-
-    p {
-        padding: 0px 20px 0 20px;
-    }
-
-    h1, h2, h3, h4, h5 {
-        padding: 10px 20px 10px 20px;
-        margin: 0;
-    }
-
-    h1 {
-        font-size: 24px;
+    &.cover {
+      text-align: center;
     }
 
 }
@@ -107,6 +129,12 @@ a {
 
     /* All Mobile Sizes (devices and browser) */
     @media only screen and (max-width: 767px) {
+      .site-header.mobile {
+        display: block;
+      }
+      .site-header.desktop {
+        display: none;
+      }
     }
 
     /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */

@@ -39,7 +39,36 @@
   		
 		<!-- Top
 		================================================== -->
-		<div class="site-header">
+
+		
+
+
+		<!-- Desktop/Tablet Navigation -->
+		<div class="wrapper site-header desktop">
+			<div class="container">
+				<div class="sixteen columns">
+					<img src="img/nav-bg.jpg" alt="" />
+
+					<ul class="nav">
+						@foreach(Page::all() as $nav)
+						<li>
+							@if($nav->title == 'Home')
+								{{ HTML::link(URL::base(), $nav->title) }}
+							@else
+								{{ HTML::link(Str::lower($nav->title), $nav->title) }}
+							@endif
+						</li>
+						@endforeach
+						@if ( Auth::guest() )
+							{{ HTML::link('login', 'Login') }}
+						@endif
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<!-- Mobile Navigation -->
+		<div class="site-header mobile">
 			<div class="container">
 				<div class="sixteen columns">
 					  <div class="one-third column alpha"><a href="#menu"><i class="icon-reorder"></i></a></div>
@@ -49,23 +78,10 @@
 			</div>
 		</div>
 
-		<div class= "wrapper">
-			<img src="img/background2.jpg" alt="" class="background" />
+		<div class="wrapper">
+			<img src="img/background3.jpg" alt="" class="background" />
 			<div class="container">
 
-				<div style="background: white; margin: 0 10px; padding: 10px">
-					<strong>TEMPORÄR MENY</strong><br>
-				@foreach(Page::all() as $nav)
-					@if($nav->title == 'Home')
-						{{ HTML::link(URL::base(), $nav->title) }}
-					@else
-						{{ HTML::link(Str::lower($nav->title), $nav->title) }}
-					@endif
-				@endforeach
-				@if ( Auth::guest() )
-					{{ HTML::link('login', 'Login') }}
-				@endif
-			</div>
 				
 				<!-- Content
 				================================================== -->	
