@@ -43,7 +43,7 @@
 			<div class="container">
 				<div class="sixteen columns">
 					  <div class="one-third column alpha"><a href="#menu"><i class="icon-reorder"></i></a></div>
-					  <div class="one-third column brand">M-ROCK</div>
+					  <div class="one-third column brand"><img src="img/nav-logo-small.png" alt="" /></div>
 					  <div class="one-third column omega"></div>
 				</div>
 			</div>
