@@ -82,7 +82,13 @@ return array(
 	|
 	*/
 
-	'custom' => array(),
+	'custom' => array(
+		'min_width' 	=> 'The :attribute must have a minimum width of :size pixels.',
+		'min_height' 	=> 'The :attribute must have a minimum height of :height pixels.',
+		'max_width' 	=> 'The :attribute height must not exceed :width pixels.',
+		'max_height' 	=> 'The :attribute height must not exceed :height pixels.',
+		
+	),
 
 	/*
 	|--------------------------------------------------------------------------

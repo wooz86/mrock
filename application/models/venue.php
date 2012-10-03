@@ -5,14 +5,9 @@ class Venue extends Eloquent
 	public static $table = 'venues';
 	public static $timestamps = true;
 
-	public static $rules_new = array(
+	public static $rules = array(
 		'id'	=> 'integer',
 		'title' => 'required|unique:venues|alpha_num|max:200',
-		'url' 	=> 'required|url',
-	);
-	public static $rules_update = array(
-		'id'	=> 'integer',
-		'title' => 'required|alpha_num|max:200',
 		'url' 	=> 'required|url',
 	);
 
@@ -21,14 +16,12 @@ class Venue extends Eloquent
 		return $this->has_one('gig');
 	}
 
-	public static function validate($input, $new = true)
+	public static function validate($input)
 	{
-		if($new == false)
-		{
-			$validation = Validator::make($input, static::$rules_update);
-		}
-		else
-			$validation = Validator::make($input, static::$rules_new);
+		if(isset($input['id']))
+			static::$rules['title'] = 'required|unique:venues,title,' . $input['id'] . '|alpha_num|max:200';
+		
+		$validation = Validator::make($input, static::$rules);
 
 		return $validation->fails() ? $validation : true;
 	}
@@ -39,7 +32,7 @@ class Venue extends Eloquent
 		$new_venue->title = $input['title'];
 		$new_venue->url = $input['url'];
 		$new_venue->save();
-		$venue_id = $venue->id;
+		$venue_id = $new_venue->id;
 		
 		if($return_id == true)
 		{

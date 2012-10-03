@@ -67,7 +67,7 @@ class Admin_Venues_Controller extends Admin_Base_Controller
 			'url' 	=> Input::get('url'),
 		);
 
-		$validation = Venue::validate($input, false);
+		$validation = Venue::validate($input);
 
     	if($validation !== true)
     	{

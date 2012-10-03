@@ -65,12 +65,28 @@ class Admin_Home_Controller extends Admin_Base_Controller
 
 	public function action_edit_intro_image()
 	{
-		
+		$data = array();
+		return View::make('admin.home.edit_intro_image_form', $data);
 	}
 
 	public function action_update_intro_image()
 	{
-		
+		$image['intro_image'] = Input::file('intro_image');
+		$width = getimagesize($image['intro_image']['tmp_name'])[1];
+		$height = getimagesize($image['intro_image']['tmp_name'])[0];
+
+		$validation = Image::validate_intro_image($image);
+
+		if($validation !== true)
+		{
+			return Redirect::to('admin/home/edit/intro_image')
+				->with_errors($validation->errors);
+		}
+
+		Session::flash('success', 'Intro image updated.');
+
+		return Redirect::to('admin/home/edit/intro_image');
+
 	}
 
 	public function action_edit_intro_video()

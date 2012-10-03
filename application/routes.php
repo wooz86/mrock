@@ -56,6 +56,7 @@ Route::get('admin/user/(:num)/edit', 'admin.user@edit');
 Route::get('admin/home/edit/intro_text', 'admin.home@edit_intro_text');
 Route::post('admin/home/edit/intro_text', 'admin.home@update_intro_text');
 Route::get('admin/home/edit/intro_image', 'admin.home@edit_intro_image');
+Route::post('admin/home/edit/intro_image', 'admin.home@update_intro_image');
 Route::get('admin/home/edit/intro_video', 'admin.home@edit_intro_video');
 Route::post('admin/home/edit/intro_video', 'admin.home@update_intro_video');
 
