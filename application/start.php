@@ -77,6 +77,7 @@ Autoloader::map(array(
 Autoloader::directories(array(
 	path('app').'models',
 	path('app').'libraries',
+	Bundle::path('imagine').'src',
 ));
 
 /*

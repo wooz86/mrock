@@ -17,6 +17,10 @@
 			</ul>
 		@endif
 
+		@if(!empty($intro_image))
+			{{ HTML::image('uploads/home/' . $intro_image->filename) }}
+		@endif
+
 			{{ Form::open('admin/home/edit/intro_image', 'POST', array('enctype' => 'multipart/form-data')) }}
 			{{ Form::file('intro_image') }}
 			{{ Form::submit('Update') }}

@@ -35,6 +35,7 @@ class Home_Controller extends Base_Controller
 	{
 		$page = Page::find(1);
 		$text = Content::where('page_id', '=', 1)->get();
+		$intro_image = Image::where('type', '=', 'intro_image')->first();
 
 		// $page_html_clean = Purifier::clean($page);
 
@@ -45,6 +46,9 @@ class Home_Controller extends Base_Controller
 
 		if(!empty($page))
 			$data['page'] = $page;
+
+		if(!empty($page))
+			$data['intro_image'] = $intro_image;
 
 		if(!empty($text))
 		{

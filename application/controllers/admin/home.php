@@ -65,15 +65,18 @@ class Admin_Home_Controller extends Admin_Base_Controller
 
 	public function action_edit_intro_image()
 	{
-		$data = array();
+		$intro_image = Image::where('type', '=', 'intro_image')->first();
+		$data = array(
+			'intro_image' => $intro_image,
+		);
 		return View::make('admin.home.edit_intro_image_form', $data);
 	}
 
 	public function action_update_intro_image()
 	{
 		$image['intro_image'] = Input::file('intro_image');
-		$width = getimagesize($image['intro_image']['tmp_name'])[1];
-		$height = getimagesize($image['intro_image']['tmp_name'])[0];
+		$extension = File::extension($image['intro_image']['name']);
+		$filename = sha1(Auth::user()->id . time()) . '.' . Str::lower($extension);
 
 		$validation = Image::validate_intro_image($image);
 
@@ -83,10 +86,38 @@ class Admin_Home_Controller extends Admin_Base_Controller
 				->with_errors($validation->errors);
 		}
 
-		Session::flash('success', 'Intro image updated.');
+		$image['intro_image']['new_filename'] = $filename;
 
+		$upload_success = Image::upload('intro_image', $image['intro_image']);
+
+		if($upload_success)
+		{
+			if(!(Image::resize_down(Image::$uploads_dir . 'home/', $filename)))
+				Log::write('error', 'Image model: resize_down() failed');
+
+			// if(!(Image::create_thumbs(Image::$uploads_dir . 'home/', $filename)))
+			// 	Log::write('error', 'Image model: create_thumbs() failed');
+
+			$new_image = Image::find(4);
+			$new_image->filename 	= $filename;
+			$new_image->order 		= 0;
+			$new_image->size		= $image['intro_image']['size'] / 1024;
+		    $new_image->type		= 'intro_image';
+		    if($new_image->save())
+		    {
+		    	Session::flash('success', 'Intro image updated');
+		    }
+		    else
+		    {
+		    	Log::write('error', 'Admin.Home controller: Failed to insert image info to database.');
+		    }
+		}
+		else
+		{
+			Session::flash('status_error', 'An error occurred while uploading a new intro image - please try again.');
+		}
+		    
 		return Redirect::to('admin/home/edit/intro_image');
-
 	}
 
 	public function action_edit_intro_video()
