@@ -15,7 +15,13 @@ class Create_Images_Table {
 			$table->integer('size');
 			$table->string('type');
 			$table->timestamps();
-	});
+		});
+		DB::table('images')->insert(array(
+			'id'	=> 4,
+			'order'	=> 0,
+            'type'	=> 	'intro_image',
+
+        ));
 
     }    
 
