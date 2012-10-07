@@ -5,19 +5,17 @@
 	<div role="main" class="main">
 
 		<div class="sixteen columns content-text">
-			<img src="img/band.jpg" />
+			@if(!empty($band_image))
+				{{ HTML::image('uploads/biography/' . $band_image->filename) }}
+			@endif
+
 			@if($page)
 				<h1>{{ $page->title }}</h1>
 			@endif
 
-			@if($main_text)
-				<h1>{{ $main_text->title }}</h1>
-				{{ $main_text->content }}<p><a href="#">Read More</a></p>
-			@endif
-
-			@if($side_text)
-				<h2>{{ $side_text->title }}</h2>
-				{{ $side_text->content }}
+			@if($band_text)
+				<h1>{{ $band_text->title }}</h1>
+				{{ $band_text->content }}<p><a href="#">Read More</a></p>
 			@endif
 		</div>
 

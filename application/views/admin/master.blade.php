@@ -17,6 +17,27 @@
 		{{ HTML::style('css/base.css') }}
 		{{ HTML::style('css/skeleton.css') }}
 		{{ HTML::style('css/admin/style.css') }}
+		<script src="http://code.jquery.com/jquery-1.8.1.min.js"></script>
+		{{ Asset::container('laramce')->scripts() }}
+
+		{{	
+			RTE::initialize_script(
+				array(
+					'selector'=>'editor',
+					'mode'	=>'advanced',
+	                'setup'	=> array(
+	                	'skin'			=>'o2k7',
+	                    'skin_variant'	=>'black',
+	                    'width'			=> '100%',
+	                    'height' 		=> '400px',
+	                    'theme_advanced_disable' => '|, justifyleft, justifycenter, outdent, indent, anchor, justifyright, justifyfull, image, code, hr, styleselect, fontselect, formatselect, fontsizeselect, forecolor, backcolor, forecolorpicker, backcolorpicker, newdocument, blockquote, visualaid, separator',
+	                    'theme_advanced_buttons1' => 'bold,italic,underline, strikethrough, bullist, numlist, undo, redo, link, unlink, cleanup, removeformat, subscript, superscript, charmap, help',
+	                    'theme_advanced_buttons2' => '',
+	                    'theme_advanced_buttons3' => '',
+                	)
+                )
+            )
+        }}
 
 		 <!--[if lt IE 9]>
 			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -52,6 +73,6 @@
 
 	  
 		<!-- End Document
-		================================================== -->	
+		================================================== -->
 	</body>
 </html>

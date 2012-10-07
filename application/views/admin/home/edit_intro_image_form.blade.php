@@ -3,7 +3,7 @@
 @section('content')
 	<div class="container">
 
-		<h2>Edit intro video</h2>
+		<h2>Edit intro image</h2>
 
 		@if(Session::has('success'))
 			{{ Session::get('success') }}
@@ -15,6 +15,10 @@
 					{{$message}}
 				@endforeach
 			</ul>
+		@endif
+
+		@if(!empty($intro_image))
+			{{ HTML::image('uploads/home/' . $intro_image->filename) }}
 		@endif
 
 			{{ Form::open('admin/home/edit/intro_image', 'POST', array('enctype' => 'multipart/form-data')) }}

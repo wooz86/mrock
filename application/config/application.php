@@ -179,6 +179,7 @@ return array(
 		'Task'       	=> 'Laravel\\CLI\\Tasks\\Task',
 		'URI'        	=> 'Laravel\\URI',
 		'View'       	=> 'Laravel\\View',
+		'RTE'           => 'Laramce\\RTE',
 	),
 
 	// 'Validator'  	=> 'Laravel\\Validator',

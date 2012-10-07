@@ -32,10 +32,19 @@ a, a:visited {
 /* #Page Styles
 ================================================== */
 
+/* #Image Styles
+================================================== */
+img {
+	max-width: 940px;
+}
+
 /* #Form Styles
 ================================================== */
 select.datefield-short {
 	max-width: 70px;
+}
+textarea {
+	max-width: 500px;
 }
 
 /* #Table Styles

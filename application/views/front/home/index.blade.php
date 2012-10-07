@@ -5,8 +5,10 @@
 	<div role="main" class="main">
 
 		<div class="ten columns">
-			<img src="img/band.jpg" />
-			
+			@if(!empty($intro_image))
+			{{ HTML::image('uploads/home/' . $intro_image->filename) }}
+			@endif
+
 			<!--@if($page)
 				<h1>{{ $page->title }}</h1>
 			@endif-->

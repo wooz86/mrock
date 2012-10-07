@@ -66,6 +66,10 @@ return array(
 	),
 	"unique"         => "The :attribute has already been taken.",
 	"url"            => "The :attribute format is invalid.",
+	"minwidth"		 => "The :attribute must have a minimum width of :width pixels.",
+	"minheight"		 => "The :attribute must have a minimum height of :height pixels.",
+	"maxwidth"		 => "The :attribute height must not exceed :width pixels.",
+	"maxheight"		 => "The :attribute height must not exceed :height pixels.",
 
 	/*
 	|--------------------------------------------------------------------------
@@ -82,13 +86,7 @@ return array(
 	|
 	*/
 
-	'custom' => array(
-		'min_width' 	=> 'The :attribute must have a minimum width of :size pixels.',
-		'min_height' 	=> 'The :attribute must have a minimum height of :height pixels.',
-		'max_width' 	=> 'The :attribute height must not exceed :width pixels.',
-		'max_height' 	=> 'The :attribute height must not exceed :height pixels.',
-		
-	),
+	"custom" => array(),
 
 	/*
 	|--------------------------------------------------------------------------

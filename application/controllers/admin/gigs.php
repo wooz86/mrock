@@ -1,6 +1,6 @@
 <?php
 
-class Admin_Gigs_Controller extends Base_Controller 
+class Admin_Gigs_Controller extends Admin_Base_Controller 
 {
 	public function action_index()
 	{
