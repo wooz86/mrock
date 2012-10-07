@@ -20,7 +20,11 @@ class Create_Images_Table {
 			'id'	=> 4,
 			'order'	=> 0,
             'type'	=> 	'intro_image',
-
+        ));
+        DB::table('images')->insert(array(
+			'id'	=> 5,
+			'order'	=> 0,
+            'type'	=> 	'band_image',
         ));
 
     }    

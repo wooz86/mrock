@@ -20,7 +20,7 @@ class Admin_Biography_Controller extends Admin_Base_Controller
 			'band_text' => '',
 		);
 
-		$band_text = Content::find(1);
+		$band_text = Content::find(4);
 
 		if($band_text)
 			$data['band_text'] = $band_text;
@@ -51,7 +51,7 @@ class Admin_Biography_Controller extends Admin_Base_Controller
 				->with_input();
 		}
 
-		$band_text = Content::find(1);
+		$band_text = Content::find(4);
 		$band_text->title = $html_clean['band_text_title'];
 		$band_text->content = $html_clean['band_text'];
 		$band_text->save();

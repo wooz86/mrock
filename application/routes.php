@@ -37,6 +37,7 @@ Route::controller('admin.home');
 Route::controller('admin.gallery');
 Route::controller('admin.gigs');
 Route::controller('admin.venues');
+Route::controller('admin.biography');
 Route::controller('admin.user');
 
 // Front controllers
@@ -66,6 +67,11 @@ Route::post('admin/gig/save', 'admin.gigs@save');
 Route::get('admin/venue/(:num)/edit', 'admin.venues@edit');
 Route::post('admin/venue/update', 'admin.venues@update');
 Route::post('admin/venue/save', 'admin.venues@save');
+
+Route::get('admin/biography/edit/band_text', 'admin.biography@edit_band_text');
+Route::post('admin/biography/edit/band_text', 'admin.biography@update_band_text');
+Route::get('admin/biography/edit/band_image', 'admin.biography@edit_band_image');
+Route::post('admin/biography/edit/band_image', 'admin.biography@update_band_image');
 
 
 // Front routes
