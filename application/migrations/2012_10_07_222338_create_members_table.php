@@ -9,7 +9,17 @@ class Create_Members_Table {
 	 */
 	public function up()
 	{
-		//
+		Schema::create('members', function($table) {
+
+			$table->engine = 'InnoDB';
+			
+			$table->increments('id');
+			$table->string('firstname');
+			$table->string('lastname');
+			$table->text('info');
+			$table->string('image_id')->unsigned();
+			$table->timestamps();
+		});
 	}
 
 	/**
@@ -19,7 +29,7 @@ class Create_Members_Table {
 	 */
 	public function down()
 	{
-		//
+		Schema::drop('members');
 	}
 
 }

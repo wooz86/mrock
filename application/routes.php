@@ -38,6 +38,7 @@ Route::controller('admin.gallery');
 Route::controller('admin.gigs');
 Route::controller('admin.venues');
 Route::controller('admin.biography');
+Route::controller('admin.members');
 Route::controller('admin.user');
 
 // Front controllers

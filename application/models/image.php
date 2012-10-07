@@ -232,8 +232,6 @@ class Image extends Eloquent
 
 		$cropped = $image->crop($startPoint, new Box($size, $size))->save($path . $new_filename);
 
-		return true;
-
 		if($cropped)
 			return true;
 		else
