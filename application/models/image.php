@@ -54,38 +54,41 @@ class Image extends Eloquent
 		return false;
 	}
 
+	public static function upload($key, $input)
+	{		
+		$directory = static::set_upload_dir($key);
+
+		$file_upload = Input::upload($key, $directory, $input['new_filename']);
+
+		if($file_upload)
+			return true;
+		else
+			return false;
+	}
+
 	public static function resize_to_dimension($dimension, $source, $extension, $destination)
 	{
-
-		//get the image size
 		$size = getimagesize($source);
-
-		//determine dimensions
 		$width = $size[0];
 		$height = $size[1];
 
-		//determine what the file extension of the source
-		//image is
+		//determine what the file extension of the image
 		switch($extension)
 		{
-			//its a gif
 			case 'gif': case 'GIF':
-				//create a gif from the source
 				$sourceImage = imagecreatefromgif($source);
 				break;
 			case 'jpg': case 'JPG': case 'jpeg':
-				//create a jpg from the source
 				$sourceImage = imagecreatefromjpeg($source);
 				break;
 			case 'png': case 'PNG':
-				//create a png from the source
 				$sourceImage = imagecreatefrompng($source);
 				break;
 		}
 
 		// find the largest dimension of the image
 		// then calculate the resize perc based upon that dimension
-		$percentage = ( $width >= $height ) ? 100 / $width * $dimension : 100 / $height * $dimension;
+		$percentage = ($width >= $height) ? 100 / $width * $dimension : 100 / $height * $dimension;
 
 		// define new width / height
 		$newWidth = $width / 100 * $percentage;
@@ -97,18 +100,13 @@ class Image extends Eloquent
 		// copy resampled
 		imagecopyresampled($destinationImage, $sourceImage, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);
 
-	    //exif only supports jpg in our supported file types
+	    // exif only supports jpg in our supported file types
 	    if ($extension == "jpg" || $extension == "jpeg")
 		{
-
-			//fix photos taken on cameras that have incorrect
-			//dimensions
 			$exif = exif_read_data($source);
-
-			//get the orientation
 			$ort = $exif['Orientation'];
 
-			//determine what oreientation the image was taken at
+			// determine what oreientation the image was taken at
 			switch($ort)
 		    {
 		        case 2: // horizontal flip
@@ -175,18 +173,6 @@ class Image extends Eloquent
 	    }
 		imagedestroy($tmp);
 		return true;
-	}
-
-	public static function upload($key, $input)
-	{		
-		$directory = static::set_upload_dir($key);
-
-		$file_upload = Input::upload($key, $directory, $input['new_filename']);
-
-		if($file_upload)
-			return true;
-		else
-			return false;
 	}
 
 	public static function create_thumbs($path, $filename)
