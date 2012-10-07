@@ -96,8 +96,8 @@ class Admin_Home_Controller extends Admin_Base_Controller
 			if(!(Image::resize_to_dimension(1024, $path, $filename, $extension, $path . $filename)))
 				Log::write('error', 'Image model: resize_down() failed');
 
-			// if(!(Image::create_thumbs($filepath)))
-			// 	Log::write('error', 'Image model: create_thumbs() failed');
+			if(!(Image::create_thumb($path, $filename)))
+				Log::write('error', 'Image model: create_thumbs() failed');
 
 			$new_image = Image::find(4);
 			$new_image->filename 	= $filename;
