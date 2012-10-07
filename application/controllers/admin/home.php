@@ -77,9 +77,9 @@ class Admin_Home_Controller extends Admin_Base_Controller
 		$image['intro_image'] = Input::file('intro_image');
 		$extension = File::extension($image['intro_image']['name']);
 		$filename = sha1(Auth::user()->id . time()) . '.' . Str::lower($extension);
-		$filepath = Image::$uploads_dir . 'home/' . $filename;
+		$path = Image::$uploads_dir . 'home/';
 
-		$validation = Image::validate_intro_image($image);
+		$validation = Image::validate_big_image($image);
 
 		if($validation !== true)
 		{
@@ -93,7 +93,7 @@ class Admin_Home_Controller extends Admin_Base_Controller
 
 		if($upload_success)
 		{		
-			if(!(Image::resize_to_dimension(1024, $filepath, $extension, $filepath)))
+			if(!(Image::resize_to_dimension(1024, $path, $filename, $extension, $path . $filename)))
 				Log::write('error', 'Image model: resize_down() failed');
 
 			// if(!(Image::create_thumbs($filepath)))

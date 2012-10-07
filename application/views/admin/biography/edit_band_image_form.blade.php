@@ -3,7 +3,7 @@
 @section('content')
 	<div class="container">
 
-		<h2>Edit intro image</h2>
+		<h2>Edit band image</h2>
 
 		@if(Session::has('success'))
 			{{ Session::get('success') }}
@@ -17,12 +17,12 @@
 			</ul>
 		@endif
 
-		@if(!empty($intro_image))
-			{{ HTML::image('uploads/home/' . $intro_image->filename) }}
+		@if(!empty($band_image))
+			{{ HTML::image('uploads/biography/' . $band_image->filename) }}
 		@endif
 
-			{{ Form::open('admin/home/edit/intro_image', 'POST', array('enctype' => 'multipart/form-data')) }}
-			{{ Form::file('intro_image') }}
+			{{ Form::open('admin/biography/edit/band_image', 'POST', array('enctype' => 'multipart/form-data')) }}
+			{{ Form::file('band_image') }}
 			{{ Form::submit('Update') }}
 
 	</div>

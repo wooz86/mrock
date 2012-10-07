@@ -13,9 +13,9 @@
 
 		<h5>Biography</h5>
 		<ul>
-			<li>{{ HTML::link('admin/biography/', 'Edit band image') }}</li>
-			<li>{{ HTML::link('admin/biography/', 'Edit band text') }}</li>
-			<li>{{ HTML::link('admin/biography/', 'Edit members') }}</li>
+			<li>{{ HTML::link('admin/biography/edit/band_image', 'Edit band image') }}</li>
+			<li>{{ HTML::link('admin/biography/edit/band_text', 'Edit band text') }}</li>
+			<li>{{ HTML::link('admin/members/manage', 'Manage members') }}</li>
 		</ul>
 
 		<h5>Gigs</h5>

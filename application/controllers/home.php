@@ -33,8 +33,8 @@ class Home_Controller extends Base_Controller
 
 	public function action_index()
 	{
-		$page = Page::find(1);
-		$text = Content::where('page_id', '=', 1)->get();
+		$page 		 = Page::find(1);
+		$text 		 = Content::where('page_id', '=', 1)->get();
 		$intro_image = Image::where('type', '=', 'intro_image')->first();
 
 		// $page_html_clean = Purifier::clean($page);
@@ -47,8 +47,11 @@ class Home_Controller extends Base_Controller
 		if(!empty($page))
 			$data['page'] = $page;
 
-		if(!empty($page))
+		if(!empty($intro_image))
+		{
 			$data['intro_image'] = $intro_image;
+			$data['intro_image']->filename = str_replace('.jpg','_580.jpg', $intro_image->filename);
+		}
 
 		if(!empty($text))
 		{
