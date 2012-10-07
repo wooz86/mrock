@@ -43,6 +43,9 @@ img {
 select.datefield-short {
 	max-width: 70px;
 }
+textarea {
+	max-width: 500px;
+}
 
 /* #Table Styles
 ================================================== */

@@ -20,7 +20,7 @@
 		@if($intro_text)
 			{{ Form::open('admin/home/edit/intro_text', 'POST') }}
 			{{ Form::text('intro_text_title', $intro_text->title) }}
-			{{ Form::textarea('intro_text', $intro_text->content) }}
+			{{ Form::textarea('intro_text', $intro_text->content, array('class' => 'editor')) }}
 			{{ Form::submit('Update') }}
 		@else
 			<p>Problem loading the form data.</p>
