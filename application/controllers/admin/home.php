@@ -65,6 +65,8 @@ class Admin_Home_Controller extends Admin_Base_Controller
 
 	public function action_edit_intro_image()
 	{
+		// dd(read_exif_data('public/uploads/home/16c8c8c7d8fd06bb5994e432ac8247e46fda1a26.jpg'));
+
 		$intro_image = Image::where('type', '=', 'intro_image')->first();
 		$data = array(
 			'intro_image' => $intro_image,
@@ -77,6 +79,7 @@ class Admin_Home_Controller extends Admin_Base_Controller
 		$image['intro_image'] = Input::file('intro_image');
 		$extension = File::extension($image['intro_image']['name']);
 		$filename = sha1(Auth::user()->id . time()) . '.' . Str::lower($extension);
+		$filepath = Image::$uploads_dir . 'home/' . $filename;
 
 		$validation = Image::validate_intro_image($image);
 
@@ -91,11 +94,11 @@ class Admin_Home_Controller extends Admin_Base_Controller
 		$upload_success = Image::upload('intro_image', $image['intro_image']);
 
 		if($upload_success)
-		{
-			if(!(Image::resize_down(Image::$uploads_dir . 'home/', $filename)))
+		{		
+			if(!(Image::resize_to_dimension(1024, $filepath, $extension, $filepath)))
 				Log::write('error', 'Image model: resize_down() failed');
 
-			// if(!(Image::create_thumbs(Image::$uploads_dir . 'home/', $filename)))
+			// if(!(Image::create_thumbs($filepath)))
 			// 	Log::write('error', 'Image model: create_thumbs() failed');
 
 			$new_image = Image::find(4);
