@@ -28,10 +28,10 @@
 			<h1>Twitter</h1>
 			<p>tweet tweet <a href="#">Read More</a></p>
 
-			@if($side_text)
-				<h2>{{ $side_text->title }}</h2>
+			<!--@if($side_text)
+				<h1>{{ $side_text->title }}</h1>
 				{{ $side_text->content }}
-			@endif
+			@endif-->
 
 		</div>
 

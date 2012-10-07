@@ -51,36 +51,39 @@
 			</div>
 		</div>
 
+		<!-- Header image -->
+		<div class="container header-image">
+			<div class="sixteen columns">
+				<img src="img/header-image.png" alt="" />
+			</div>
+		</div>
+
 		<!-- Desktop/Tablet Navigation -->
-		
-
-			<div class="site-header desktop">
-				<div class="container">
-					<div class="sixteen columns">
-
-						<ul class="nav">
-							@foreach(Page::all() as $nav)
-							<li>
-								@if($nav->title == 'Home')
-									{{ HTML::link(URL::base(), $nav->title) }}
-								@else
-									{{ HTML::link(Str::lower($nav->title), $nav->title) }}
-								@endif
-							</li>
-							@endforeach
-							@if ( Auth::guest() )
-								{{ HTML::link('login', 'Login') }}
+		<div class="site-header desktop">
+			<div class="container">
+				<div class="sixteen columns">
+					<ul class="nav">
+						@foreach(Page::all() as $nav)
+						<li>
+							@if($nav->title == 'Home')
+								{{ HTML::link(URL::base(), $nav->title) }}
+							@else
+								{{ HTML::link(Str::lower($nav->title), $nav->title) }}
 							@endif
-						</ul>
-
-						<img src="img/nav-bg.jpg" alt="" />
-
-					</div>
+						</li>
+						@endforeach
+						@if ( Auth::guest() )
+						<li>
+							{{ HTML::link('login', 'Login') }}
+						</li>
+						@endif
+					</ul>
 				</div>
 			</div>
+		</div>
 
 		<div class="wrapper">
-			<img src="img/background-blue.jpg" alt="" class="background" />
+
 			<div class="container">
 
 				
