@@ -2,41 +2,38 @@
 
 @section('content')
 
-	<div role="main" class="main">
-
-		<div class="ten columns">
-			@if(!empty($intro_image))
-			{{ HTML::image('uploads/home/' . $intro_image->filename) }}
-			@endif
-
-			<!--@if($page)
-				<h1>{{ $page->title }}</h1>
-			@endif-->
-
-			@if($main_text)
-				<h1>{{ $main_text->title }}</h1>
-				{{ $main_text->content }}<p><a href="#">Read More</a></p>
-			@endif
-
-			@if(!empty($intro_video))
-				<iframe src="{{ $intro_video->content }}" frameborder="0" allowfullscreen></iframe>
-			@else
-				<iframe src="http://www.youtube.com/embed/LjLPqIL2HHU" frameborder="0" allowfullscreen></iframe>
-			@endif
-
+	<div class="container">
+		<div class="sixteen columns">
+			<div class="divider before desktop"></div>
 		</div>
-		
-		<div class="six columns">
-			<h1>Twitter</h1>
-			<p>tweet tweet <a href="#">Read More</a></p>
+	</div>
 
-			<!--@if($side_text)
-				<h1>{{ $side_text->title }}</h1>
-				{{ $side_text->content }}
-			@endif-->
+	<div class="container">
+		<div class="content clearfix">
+			<div class="seven columns">
+				@if(empty($intro_image))
+					{{ HTML::image('uploads/home/' . $intro_image->filename) }}
+				@else
+					<img src="img/band.jpg" alt="" />
+				@endif
+			</div>
 
+			<div class="eight columns offset-by-one">
+				@if($main_text)
+					<h1>{{ $main_text->title }}</h1>
+					{{ $main_text->content }}
+					<span class="readmore"><a href="#">Read More »</a></span>
+				@endif
+			</div>
+
+			<div class="sixteen columns clearfix">
+				@if(!empty($intro_video))
+					<iframe src="{{ $intro_video->content }}" frameborder="0" allowfullscreen></iframe>
+				@else
+					<iframe src="http://www.youtube.com/embed/LjLPqIL2HHU" frameborder="0" allowfullscreen></iframe>
+				@endif
+			</div>
 		</div>
-
 	</div>
 
 @endsection

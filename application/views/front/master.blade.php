@@ -4,7 +4,7 @@
 		<!-- Basic Page Needs
 		================================================== -->
 		<meta charset="utf-8">
-		<title>M-ROCK</title>
+		<title>M-ROCK @if($page) - {{ $page->title }} @endif</title>
 		<meta name="description" content="">
 		<meta name="author" content="">
 		
@@ -19,6 +19,7 @@
 		{{ HTML::style('css/font-awesome.css') }}
 		{{ HTML::style('css/style.css') }}
 		<script src="http://code.jquery.com/jquery-1.8.1.min.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,300' rel='stylesheet' type='text/css'>
 
 		 <!--[if lt IE 9]>
 			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -45,7 +46,11 @@
 			<div class="container">
 				<div class="sixteen columns">
 					  <div class="one-third column alpha"><a href="#menu"><i class="icon-reorder"></i></a></div>
-					  <div class="one-third column brand"><img src="img/nav-logo-small.png" alt="" /></div>
+					  <div class="one-third column brand">
+					  	@if($page)
+		                    <span>{{ $page->title }}</span>
+		                @endif
+					  </div>
 					  <div class="one-third column omega"></div>
 				</div>
 			</div>
@@ -72,35 +77,28 @@
 							@endif
 						</li>
 						@endforeach
+						<!--
 						@if ( Auth::guest() )
 						<li>
 							{{ HTML::link('login', 'Login') }}
 						</li>
 						@endif
+						-->
 					</ul>
 				</div>
 			</div>
 		</div>
 
-		<div class="wrapper">
+		<!-- Content
+		================================================== -->
+		<div role="main" class="main">
+			@yield('content')
+		</div>
 
-			<div class="container">
-
-				
-				<!-- Content
-				================================================== -->	
-				@yield('content')
-
-				<!-- Footer
-				================================================== -->
-				
-				
-
-			</div><!-- /container -->
-		</div><!-- /wrapper -->
-
-
-	  
+		<!-- Footer
+		================================================== -->
+		@include('front.plugins.footer')
+	  	
 		<!-- End Document
 		================================================== -->	
 	</body>

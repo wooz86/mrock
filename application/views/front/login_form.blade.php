@@ -4,7 +4,6 @@
 	<div role="main" class="main">
 
 		<div class="sixteen columns content-text">
-			<img src="img/band.jpg" />
 
 			@if (Session::has('login_errors'))
 		        <span class="error">Username or password incorrect.</span>
