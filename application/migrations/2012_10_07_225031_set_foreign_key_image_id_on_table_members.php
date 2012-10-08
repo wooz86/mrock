@@ -25,6 +25,5 @@ class Set_Foreign_Key_Image_Id_On_Table_Members {
 			$table->drop_foreign('members_image_id_foreign');
 		});
 	}
-	}
 
 }

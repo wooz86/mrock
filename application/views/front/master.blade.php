@@ -4,7 +4,7 @@
 		<!-- Basic Page Needs
 		================================================== -->
 		<meta charset="utf-8">
-		<title>M-ROCK @if($page) - {{ $page->title }} @endif</title>
+		<title>M-ROCK @if(isset($page)) - {{ $page->title }} @endif</title>
 		<meta name="description" content="">
 		<meta name="author" content="">
 		
