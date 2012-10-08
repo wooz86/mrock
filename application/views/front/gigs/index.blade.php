@@ -11,8 +11,8 @@
 	<div class="container">
 		<div class="content clearfix">
 			<div class="sixteen columns clearfix">
-				
-				@if($page)
+
+				@if(isset($page))
 					<h1>{{ $page->title }}</h1>
 				@endif
 

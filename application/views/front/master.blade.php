@@ -47,7 +47,7 @@
 				<div class="sixteen columns">
 					  <div class="one-third column alpha"><a href="#menu"><i class="icon-reorder"></i></a></div>
 					  <div class="one-third column brand">
-					  	@if($page)
+					  	@if(isset($page))
 		                    <span>{{ $page->title }}</span>
 		                @endif
 					  </div>
