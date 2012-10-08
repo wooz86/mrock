@@ -10,13 +10,35 @@ class Image extends Eloquent
 
 	public static $uploads_dir 	= 'public/uploads/';
 
-	public static $big_image_rules = array(
-		'intro_image' => 'required|mimes:jpg,png,bmp|max:2000|minwidth:940|minheight:400'
+	public static $rules = array(
+		'image' => 'required|mimes:jpg,png,bmp|max:2000|minwidth:940|minheight:400'
 	);
+
+	public function member()
+	{
+		return $this->has_one('Member');
+	}
 
 	public static function validate_big_image($input)
 	{
-		$validation = Validator::make($input, static::$big_image_rules);
+		if(isset($input['intro_image']))
+		{
+			static::$rules['intro_image'] = static::$rules['image'];
+			unset(static::$rules['image']);
+		}
+		if(isset($input['band_image']))
+		{
+			static::$rules['band_image'] = static::$rules['image'];
+			unset(static::$rules['image']);
+		}
+
+		if(isset($input['member_image']))
+		{
+			static::$rules['member_image'] = static::$rules['image'];
+			unset(static::$rules['image']);
+		}
+
+		$validation = Validator::make($input, static::$rules);
 
 		return $validation->fails() ? $validation : true;
 	}
@@ -31,7 +53,7 @@ class Image extends Eloquent
 			case 'biography':
 				return $directory = static::$uploads_dir . 'biography/';
 			break;
-			case 'member':
+			case 'member_image':
 				return $directory = static::$uploads_dir . 'members/';
 			break;
 			case 'gallery':
