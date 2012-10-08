@@ -80,11 +80,11 @@ class Admin_Members_Controller extends Admin_Base_Controller
 			    if($member_image->save())
 			    {
 			    	$input['image_id'] = $member_image->id;
-			    	Session::flash('success', 'Member image updated');
+			    	Session::flash('success', 'Member image added.');
 			    }
 			    else
 			    {
-			    	Log::write('error', 'Admin.Home controller: Failed to insert image info to database.');
+			    	Log::write('error', 'Admin.Members controller: Failed to insert image info to database.');
 			    }
 			}
 			else

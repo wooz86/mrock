@@ -20,18 +20,18 @@
                     {{ $main_text->content }}
                     <span class="readmore"><a href="#">Read More »</a></span>
                 @endif
-				<ul>
-                    <li><img src="http://www.placehold.it/200" alt="" /></li>
-                    <li><img src="http://www.placehold.it/200" alt="" /></li>
-                    <li><img src="http://www.placehold.it/200" alt="" /></li>
-                    <li><img src="http://www.placehold.it/200" alt="" /></li>
-                    <li><img src="http://www.placehold.it/200" alt="" /></li>
-                    <li><img src="http://www.placehold.it/200" alt="" /></li>
-                    <li><img src="http://www.placehold.it/200" alt="" /></li>
-                    <li><img src="http://www.placehold.it/200" alt="" /></li>
-                    <li><img src="http://www.placehold.it/200" alt="" /></li>
-                    <li><img src="http://www.placehold.it/200" alt="" /></li>
-                </ul>
+        @if(!empty($images))
+            <ul>
+                @foreach($images as $image)
+                    <li>
+                        {{ HTML::image('uploads/gallery/' . $image->filename, $image->caption) }}
+                        <p>{{ $image->caption }}</p>
+                    </li>
+                @endforeach
+            </ul>
+        @else
+            <p>No images uploaded.</p>
+        @endif
 			</div>
 		</div>
 	</div>

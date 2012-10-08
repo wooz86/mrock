@@ -27,6 +27,10 @@ class Image extends Eloquent
 		if(isset($input['member_image']))
 			static::$rules['member_image'] = 'mimes:jpg,png|max:2000|minwidth:940|minheight:400';
 
+		if(isset($input['gallery_image']))
+			static::$rules['gallery_image'] = 'required|mimes:jpg,png|max:2000|minwidth:940|minheight:400';
+			static::$rules['caption'] 		= 'max:50|alpha_dash';
+
 		$validation = Validator::make($input, static::$rules);
 
 		return $validation->fails() ? $validation : true;
@@ -45,7 +49,7 @@ class Image extends Eloquent
 			case 'member_image':
 				return $directory = static::$uploads_dir . 'members/';
 			break;
-			case 'gallery':
+			case 'gallery_image':
 				return $directory = static::$uploads_dir . 'gallery/';
 			break;
 			default:

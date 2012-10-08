@@ -12,7 +12,7 @@
 		@if(!empty($errors->messages))
 			<ul>
 				@foreach($errors->all('<li>:message</li>') as $message)
-					{{$message}}
+					{{ $message }}
 				@endforeach
 			</ul>
 		@endif

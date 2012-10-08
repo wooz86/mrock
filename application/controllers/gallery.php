@@ -6,6 +6,7 @@ class Gallery_Controller extends Base_Controller
 	{
 		$page = Page::find(5);
 		$text = Content::where('page_id', '=', 5)->get();
+		$images = Image::where('type', '=', 'gallery_image')->get();
 
 		$data = array(
 			'main_text' => '',
@@ -26,6 +27,16 @@ class Gallery_Controller extends Base_Controller
 					$data['side_text'] = $part;
 			}
 		}
+
+		if(!empty($images))
+		{
+			foreach($images as $image)
+			{
+				$image->filename = str_replace('.jpg','_thumb.jpg', $image->filename);
+			}
+			$data['images'] = $images;
+		}
+
 		return View::make('front.gallery.index', $data);
 	}
 
