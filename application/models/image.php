@@ -64,6 +64,9 @@ class Image extends Eloquent
 		$width = $size[0];
 		$height = $size[1];
 
+		if($width < $dimension || $height < $dimension)
+			return false;
+
 		//determine what the file extension of the image
 		switch($extension)
 		{
@@ -181,24 +184,55 @@ class Image extends Eloquent
 		return true;
 	}
 
-	public static function create_thumbs($path, $filename)
+	public static function create_thumb($path, $filename, $size = 200)
 	{
+		$source = $path . $filename;
+
 		$imagine = new Imagine\Gd\Imagine();
-		$image = $imagine->open($path . $filename);
+		$image = $imagine->open($source);
 
-		$sourceSize = getimagesize($path . $filename);
-		$width = $sourceSize[0];
-		$height = $SourceSize[1];
+		$imagedata = getimagesize($source);
+		$width = $imagedata[0];
+		$height = $imagedata[1];
 
-		$size = new Imagine\Image\Box($width, $height);
+		if($width < $size || $height < $size)
+			return false;
 
-		$percentage = ($width >= $height) ? 100 / $width * 580 : 100 / $height * 580;
-		$newWidth = $width / 100 * $percentage;
-		$newHeight = $height / 100 * $percentage;
+		if($width > $height)
+		{
+			$new_height = 1.75 * $size;
+			$new_width = $new_height * ($width / $height);
+		}
+		if($height > $width)
+		{
+			$new_width = 1.75 * $size;
+			$new_height = $new_width * ($height / $width);
+		}
+		if($height == $width)
+		{
+			$new_width = 1.75 * $size;
+			$new_height = 1.75 * $size;
+		}
 
-		$resized = $image->resize(new Box(1024, 768))->save($path . $filename);
+		$new_width = round($new_width);
+		$new_height = round($new_height);
 
-		if($resized)
+		$new_filename = str_replace('.jpg', '', $filename) . '_thumb.jpg';
+		$resized = $image->resize(new Box($new_width, $new_height))->save($path . $new_filename);
+
+		$image = $imagine->open($path . $new_filename);
+
+		$boxSize = new Box($new_width, $new_height);
+		$center  = new Imagine\Image\Point\Center($boxSize);
+
+		$x = $center->getX() - ($size / 2);
+		$y = $center->getY() - ($size / 2);
+
+		$startPoint = new Point($x, $y);
+
+		$cropped = $image->crop($startPoint, new Box($size, $size))->save($path . $new_filename);
+
+		if($cropped)
 			return true;
 		else
 			return false;

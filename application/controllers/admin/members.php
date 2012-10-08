@@ -5,18 +5,18 @@ class Admin_Members_Controller extends Admin_Base_Controller
 	public function action_index()
 	{
 		$data = array();
-		$venues = Venue::all();
+		$members = Member::all();
 
-		foreach($venues as $venue)
+		foreach($members as $member)
 		{
-			$venue->created_at = date('Y-m-d H:i', strtotime($venue->created_at));
-			$venue->updated_at = date('Y-m-d H:i', strtotime($venue->updated_at));
+			$member->created_at = date('Y-m-d H:i', strtotime($member->created_at));
+			$member->updated_at = date('Y-m-d H:i', strtotime($member->updated_at));
 		}
 
-		if(!empty($venues))
-			$data['venues'] = $venues;
+		if(!empty($members))
+			$data['members'] = $members;
 
-		return View::make('admin.venues.index', $data);
+		return View::make('admin.members.index', $data);
 	}
 
 	public function action_save()

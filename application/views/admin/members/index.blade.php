@@ -3,7 +3,7 @@
 @section('content')
 	<div class="container">
 
-		<h2>Gigs</h2>
+		<h2>Manage members</h2>
 
 		@if(Session::has('success'))
 			{{ Session::get('success') }}
@@ -17,9 +17,9 @@
 			</ul>
 		@endif
 
-		<h3>Add new gig</h3>
+		<h3>Add new member</h3>
 		
-		{{ Form::open('admin/gig/save', 'POST') }}
+		{{ Form::open('admin/member/save', 'POST') }}
 
 		<table class="container">
 			<th>
