@@ -77,13 +77,6 @@
 							@endif
 						</li>
 						@endforeach
-						<!--
-						@if ( Auth::guest() )
-						<li>
-							{{ HTML::link('login', 'Login') }}
-						</li>
-						@endif
-						-->
 					</ul>
 				</div>
 			</div>

@@ -1,21 +1,20 @@
 @layout('front.master')
 
 @section('content')
-	<div role="main" class="main">
+		<div class="container">
+			<div class="sixteen columns content-text">
 
-		<div class="sixteen columns content-text">
+				@if (Session::has('login_errors'))
+			        <span class="error">Username or password incorrect.</span>
+			    @endif
 
-			@if (Session::has('login_errors'))
-		        <span class="error">Username or password incorrect.</span>
-		    @endif
-
-			<h1>Login</h1>
-			{{ Form::open('login', 'POST') }}
-			{{ Form::text('email', Input::old('email')) }}
-			{{ Form::password('password') }}<br>
-			{{ Form::submit('Login') }}<br>
-			{{ Form::close() }}<br>
+				<h1>Login</h1>
+				{{ Form::open('login', 'POST') }}
+				{{ Form::text('email', Input::old('email')) }}
+				{{ Form::password('password') }}<br>
+				{{ Form::submit('Login') }}<br>
+				{{ Form::close() }}<br>
+			</div>
 		</div>
 
-	</div>
 @endsection

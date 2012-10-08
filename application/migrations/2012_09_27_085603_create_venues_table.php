@@ -19,8 +19,12 @@ class Create_Venues_Table {
 			$table->timestamps();
 		});
 		DB::table('venues')->insert(array(
-            'title' => 'Big Arena',
-            'url' 	=> 'http://www.bigarena.com',
+            'title' => 'Jazzhuset',
+            'url' 	=> 'http://www.jazzhuset.se/',
+        ));
+        DB::table('venues')->insert(array(
+        	'title' => 'Sticky Fingers',
+        	'url'	=> 'http://www.stickyfingers.nu/',
         ));
 	}
 

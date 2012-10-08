@@ -11,7 +11,7 @@
 	<div class="container">
 		<div class="content clearfix">
 			<div class="seven columns">
-				@if(empty($intro_image))
+				@if(isset($intro_image))
 					{{ HTML::image('uploads/home/' . $intro_image->filename) }}
 				@else
 					<img src="img/band.jpg" alt="" />
