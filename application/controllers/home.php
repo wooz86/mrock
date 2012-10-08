@@ -50,7 +50,7 @@ class Home_Controller extends Base_Controller
 		if(!empty($intro_image))
 		{
 			$data['intro_image'] = $intro_image;
-			$data['intro_image']->filename = str_replace('.jpg','_380.jpg', $intro_image->filename);
+			$data['intro_image']->filename = str_replace('.jpg','_580.jpg', $intro_image->filename);
 		}
 
 		if(!empty($text))

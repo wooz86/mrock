@@ -74,6 +74,11 @@ Route::post('admin/biography/edit/band_text', 'admin.biography@update_band_text'
 Route::get('admin/biography/edit/band_image', 'admin.biography@edit_band_image');
 Route::post('admin/biography/edit/band_image', 'admin.biography@update_band_image');
 
+Route::get('admin/members/manage', 'admin.members@index');
+Route::get('admin/member/(:num)/edit', 'admin.members@edit');
+Route::post('admin/member/update', 'admin.members@update');
+Route::post('admin/member/save', 'admin.members@save');
+
 
 // Front routes
 Route::get('user/login', 'user@index');

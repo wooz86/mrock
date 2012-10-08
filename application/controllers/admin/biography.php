@@ -36,7 +36,7 @@ class Admin_Biography_Controller extends Admin_Base_Controller
 	    );
 
 	    $rules = array(
-		    'band_text_title'  => 'required|alpha_dash|max:20',
+		    'band_text_title'  	=> 'required|alpha_dash|max:20',
 		    'band_text' 		=> 'required|max:2000',
 		);
 
@@ -63,8 +63,6 @@ class Admin_Biography_Controller extends Admin_Base_Controller
 
 	public function action_edit_band_image()
 	{
-		// dd(read_exif_data('public/uploads/biography/16c8c8c7d8fd06bb5994e432ac8247e46fda1a26.jpg'));
-
 		$band_image = Image::where('type', '=', 'band_image')->first();
 		$data = array(
 			'band_image' => $band_image,
@@ -106,7 +104,7 @@ class Admin_Biography_Controller extends Admin_Base_Controller
 		    $new_image->type		= 'band_image';
 		    if($new_image->save())
 		    {
-		    	Session::flash('success', 'band image updated');
+		    	Session::flash('success', 'Band image updated');
 		    }
 		    else
 		    {

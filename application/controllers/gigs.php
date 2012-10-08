@@ -26,7 +26,11 @@ class Gigs_Controller extends Base_Controller
 		}
 
 		if(!empty($gigs))
+		{
 			$data['gigs'] = $gigs;
+			foreach($data['gigs'] as $gig)
+			$gig->date = date('Y-m-d H:i', strtotime($gig->date));
+		}
 
 		return View::make('front.gigs.index', $data);
 	}

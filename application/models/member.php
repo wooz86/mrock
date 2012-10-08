@@ -27,7 +27,10 @@ class Member extends Eloquent
 		$member->firstname 	= $input['firstname'];
 		$member->lastname 	= $input['lastname'];
 		$member->info 		= $input['info'];
-		$member->image_id 	= $input['image_id'];
+    	
+    	if(!empty($input['image_id']))
+    		$member->image_id = $input['image_id'];
+		
 		$member->save();
 		$member_id = $member->id;
 		
@@ -50,7 +53,9 @@ class Member extends Eloquent
     	$member->firstname 	= $input['firstname'];
     	$member->lastname 	= $input['lastname'];
     	$member->info 		= $input['info'];
-    	$member->image_id	= $input['image_id'];
+    	
+    	if(!empty($input['image_id']))
+    		$member->image_id = $input['image_id'];
 	    
 	    if($member->save())
 	    	return true;
