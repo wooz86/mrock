@@ -34,7 +34,11 @@
 										<td>{{ $gig->venue->title }}</td>
 									@endif
 									<td>{{ $gig->date }}</td>
-									<td>{{ $gig->ticket_url }}</td>
+									@if(!empty($gig->ticket_url))
+										<td>{{ HTML::link($gig->ticket_url, 'Buy tickets') }}</td>
+									@else
+										<td>-</td>
+									@endif
 								</tr>
 							@endforeach
 						</tbody>

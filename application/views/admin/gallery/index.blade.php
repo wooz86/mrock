@@ -43,8 +43,8 @@
                     	<li>
                     		{{ HTML::image('uploads/gallery/' . $image->filename, $image->caption, array('class' => 'thumbnail')) }}
                     		<p>{{ $image->caption }}<br>
-                    		{{ HTML::link('gallery/image/' . $image->id . '/edit', 'Edit') }}
-                    		{{ HTML::link('gallery/image/' . $image->id . '/delete', 'Delete') }}</p>
+                    		{{ HTML::link('admin/gallery/image/' . $image->id . '/edit', 'Edit') }}
+                    		{{ HTML::link('admin/gallery/image/' . $image->id . '/delete', 'Delete') }}</p>
                     	</li>
                     @endforeach
                 </ul>

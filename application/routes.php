@@ -79,6 +79,11 @@ Route::get('admin/member/(:num)/edit', 'admin.members@edit');
 Route::post('admin/member/update', 'admin.members@update');
 Route::post('admin/member/save', 'admin.members@save');
 
+// Route::get('admin/gallery/image/(:num)/edit', 'admin.gallery@edit_caption');
+Route::get('admin/gallery/image/(:num)/edit', 'admin.gallery@caption');
+Route::post('admin/gallery/image/(:num)/update', 'admin.gallery@update_caption');
+Route::post('admin/gallery/image/save', 'admin.gallery@save');
+
 
 // Front routes
 Route::get('user/login', 'user@index');
@@ -88,9 +93,6 @@ Route::post('login', 'user@login');
 
 Route::get('logout', 'user@logout');
 Route::post('logout', 'user@logout');
-
-Route::get('admin/gallery/image/(:num)/edit', 'admin.gallery@edit');
-Route::post('admin/gallery/image/save', 'admin.gallery@save');
 
 Route::get('contact/post_contact_form', 'contact@index');
 Route::post('contact/post_contact_form', 'contact@post_contact_form');
