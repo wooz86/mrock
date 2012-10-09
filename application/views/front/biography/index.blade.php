@@ -20,14 +20,14 @@
                     @endif
                 </div>
 
-                <div class="eight columns alpha">
+                <div class="seven columns alpha">
        				@if(isset($band_text))
-    					<h1>{{ $band_text->title }}</h1>
+    					<h1 style="margin-top: 10px;">{{ $band_text->title }}</h1>
     					{{ $band_text->content }}
     				@endif
                 </div>
     		</div>
-    		<div class="eight columns gallery">
+    		<div class="eight columns gallery band">
                 @if(!empty($members))
         			<ul>
                         @foreach($members as $member)
