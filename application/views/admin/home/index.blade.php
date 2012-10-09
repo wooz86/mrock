@@ -26,8 +26,7 @@
 
 		<h5>Gallery</h5>
 		<ul>
-			<li>{{ HTML::link('admin/', 'List images') }}</li>
-			<li>{{ HTML::link('admin/', 'Add image') }}</li>
+			<li>{{ HTML::link('admin/gallery', 'Manage gallery') }}</li>
 		</ul>
 
 		<h5>Account</h5>
