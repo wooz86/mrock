@@ -7,16 +7,31 @@ class Image extends Eloquent
 {
 	public static $table 		= 'images';
 	public static $timestamps 	= true;
-
 	public static $uploads_dir 	= 'public/uploads/';
+	public static $rules 		= array();
 
-	public static $big_image_rules = array(
-		'intro_image' => 'required|mimes:jpg,png,bmp|max:2000|minwidth:940|minheight:400'
-	);
+
+	public function member()
+	{
+		return $this->has_one('Member');
+	}
 
 	public static function validate_big_image($input)
 	{
-		$validation = Validator::make($input, static::$big_image_rules);
+		if(isset($input['intro_image']))
+			static::$rules['intro_image'] = 'required|mimes:jpg,png|max:2000|minwidth:940|minheight:400';
+
+		if(isset($input['band_image']))
+			static::$rules['band_image'] = 'mimes:jpg,png|max:2000|minwidth:940|minheight:400';
+
+		if(isset($input['member_image']))
+			static::$rules['member_image'] = 'mimes:jpg,png|max:2000|minwidth:940|minheight:400';
+
+		if(isset($input['gallery_image']))
+			static::$rules['gallery_image'] = 'required|mimes:jpg,png|max:2000|minwidth:940|minheight:400';
+			static::$rules['caption'] 		= 'max:50|alpha_dash';
+
+		$validation = Validator::make($input, static::$rules);
 
 		return $validation->fails() ? $validation : true;
 	}
@@ -28,13 +43,13 @@ class Image extends Eloquent
 			case 'intro_image':
 				return $directory = static::$uploads_dir . 'home/';
 			break;
-			case 'biography':
+			case 'band_image':
 				return $directory = static::$uploads_dir . 'biography/';
 			break;
-			case 'member':
+			case 'member_image':
 				return $directory = static::$uploads_dir . 'members/';
 			break;
-			case 'gallery':
+			case 'gallery_image':
 				return $directory = static::$uploads_dir . 'gallery/';
 			break;
 			default:

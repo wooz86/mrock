@@ -12,7 +12,7 @@
     	<div class="content clearfix">
     		<div class="eight columns">
                 
-                @if(isset($intro_image))
+                @if(!empty($intro_image))
                     {{ HTML::image('uploads/home/' . $intro_image->filename) }}
                 @else
                     <img src="img/band.jpg" alt="" />
@@ -26,32 +26,20 @@
                 </div>
     		</div>
     		<div class="eight columns gallery">
-    			<ul>
-                    <li>
-        				<img src="http://www.placehold.it/200" alt="" /><br/>
-                    	<span>Emrik Larsson</span>
-                    </li>
-                    <li>
-                    	<img src="http://www.placehold.it/200" alt="" /><br/>
-                    	<span>Emrik Larsson</span>
-                    </li>
-                    <li>
-                    	<img src="http://www.placehold.it/200" alt="" /><br/>
-                    	<span>Emrik Larsson</span>
-                    </li>
-                    <li>
-                    	<img src="http://www.placehold.it/200" alt="" /><br/>
-                    	<span>Emrik Larsson</span>
-                    </li>
-                    <li>
-                    	<img src="http://www.placehold.it/200" alt="" /><br/>
-                    	<span>Emrik Larsson</span>
-                    </li>
-                    <li>
-                    	<img src="http://www.placehold.it/200" alt="" /><br/>
-                    	<span>Emrik Larsson</span>
-                    </li>
-                </ul>
+                @if(!empty($members))
+        			<ul>
+                        @foreach($members as $member)
+                            <li>
+                                @if(!empty($member->image))
+                                    <a href="biography/member/{{ $member->id }}">{{ HTML::image('uploads/members/' . $member->image->filename, $member->firstname . ' ' . $member->lastname) }}</a><br/>
+                                @else
+                                    <a href="biography/member/{{ $member->id }}">{{ HTML::image('img/silhouette.png', $member->firstname . ' ' . $member->lastname) }}</a><br/>
+                                @endif
+                                <span>{{ $member->firstname }} {{ $member->lastname}}</span>
+                            </li>
+                        @endforeach
+                    </ul>
+                @endif
     		</div>
     	</div>
     </div>

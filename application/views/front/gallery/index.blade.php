@@ -20,48 +20,21 @@
                     {{ $main_text->content }}
                     <span class="readmore"><a href="#">Read More »</a></span>
                 @endif
-				<ul>
-                    <li>
-                        <a href="http://www.placehold.it/580" rel="lightbox-gallery" title="my caption">
-                            <img src="http://www.placehold.it/200" alt="" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://www.placehold.it/580" rel="lightbox-gallery" title="my caption">
-                            <img src="http://www.placehold.it/200" alt="" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://www.placehold.it/580" rel="lightbox-gallery" title="my caption">
-                            <img src="http://www.placehold.it/200" alt="" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://www.placehold.it/580" rel="lightbox-gallery" title="my caption">
-                            <img src="http://www.placehold.it/200" alt="" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://www.placehold.it/580" rel="lightbox-gallery" title="my caption">
-                            <img src="http://www.placehold.it/200" alt="" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://www.placehold.it/580" rel="lightbox-gallery" title="my caption">
-                            <img src="http://www.placehold.it/200" alt="" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://www.placehold.it/580" rel="lightbox-gallery" title="my caption">
-                            <img src="http://www.placehold.it/200" alt="" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://www.placehold.it/580" rel="lightbox-gallery" title="my caption">
-                            <img src="http://www.placehold.it/200" alt="" />
-                        </a>
-                    </li>
-                </ul>
+
+                @if(!empty($images))
+                    <ul>
+                        @foreach($images as $image)
+                            <li>
+                                <a href="http://www.placehold.it/580" rel="lightbox-gallery" title="{{ $image->caption }}">
+                                {{ HTML::image('uploads/gallery/' . $image->filename, $image->caption) }}
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                @else
+                    <p>No images uploaded.</p>
+                @endif
+        
 			</div>
 		</div>
 	</div>

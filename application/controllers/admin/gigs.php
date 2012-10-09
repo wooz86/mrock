@@ -12,6 +12,7 @@ class Admin_Gigs_Controller extends Admin_Base_Controller
 
 		foreach($gigs as $gig)
 		{
+			$gig->date = date('Y-m-d H:i', strtotime($gig->date));
 			$gig->created_at = date('Y-m-d H:i', strtotime($gig->created_at));
 			$gig->updated_at = date('Y-m-d H:i', strtotime($gig->updated_at));
 		}

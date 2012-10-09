@@ -38,6 +38,10 @@ img {
 	max-width: 940px;
 }
 
+img.thumbnail {
+	max-width: 75px;
+}
+
 /* #Form Styles
 ================================================== */
 select.datefield-short {
@@ -51,6 +55,7 @@ textarea {
 ================================================== */
 td {
 	padding: 5px;
+	vertical-align: top;
 }
 
 
