@@ -4,6 +4,8 @@ class Admin_Gallery_Controller extends Admin_Base_Controller
 {
 	public function action_index()
 	{
+		$data = array();
+
 		$images = Image::where('type', '=', 'gallery_image')->get();
 
 		if(!empty($images))
