@@ -22,7 +22,7 @@
 				@if($main_text)
 					<h1>{{ $main_text->title }}</h1>
 					{{ $main_text->content }}
-					<span class="readmore"><a href="#">Read More »</a></span>
+					<span class="readmore"><a href="biography">Read More »</a></span>
 				@endif
 			</div>
 

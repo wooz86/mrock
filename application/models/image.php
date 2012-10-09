@@ -70,7 +70,7 @@ class Image extends Eloquent
 			return false;
 	}
 
-	public static function resize_to_dimension($dimension, $path, $sourceFile, $extension, $destination, $smallerVariant = '580')
+	public static function resize_to_dimension($dimension, $path, $sourceFile, $extension, $destination, $smallerVariant = '380')
 	{
 		$source = $path . $sourceFile;
 		$destination = $path . $sourceFile;
@@ -157,7 +157,7 @@ class Image extends Eloquent
 			$percentage = ($width >= $height) ? 100 / $width * $smallerVariant : 100 / $height * $smallerVariant;
 			$newWidth = $width / 100 * $percentage;
 			$newHeight = $height / 100 * $percentage;
-			$new_filename = str_replace('.jpg', '', $sourceFile) . '_580.jpg';
+			$new_filename = str_replace('.jpg', '', $sourceFile) . '_380.jpg';
 
 			$imagine = new Imagine\Gd\Imagine();
 			$image = $imagine->open($source);
