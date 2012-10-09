@@ -17,7 +17,7 @@ class Create_Members_Table {
 			$table->string('firstname');
 			$table->string('lastname');
 			$table->text('info');
-			$table->string('image_id')->unsigned();
+			$table->integer('image_id')->unsigned();
 			$table->timestamps();
 		});
 	}

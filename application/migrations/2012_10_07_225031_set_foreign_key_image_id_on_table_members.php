@@ -10,7 +10,7 @@ class Set_Foreign_Key_Image_Id_On_Table_Members {
 	public function up()
 	{
 		Schema::table('members', function($table){
-				$table->foreign('image_id')->references('id')->on('images');
+			$table->foreign('image_id')->references('id')->on('images');
 		});
 	}
 

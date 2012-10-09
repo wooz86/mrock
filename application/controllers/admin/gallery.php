@@ -74,4 +74,14 @@ class Admin_Gallery_Controller extends Admin_Base_Controller
 		return Redirect::to('admin/gallery');
 	}
 
+	public function action_edit($id)
+	{
+		$image = Image::find($id);
+
+		if(!empty($image))
+			$data['image'] = $image;
+
+		return View::make('admin.gallery.edit_caption_form', $data);
+	}
+
 }
