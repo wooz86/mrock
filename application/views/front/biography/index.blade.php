@@ -12,13 +12,15 @@
     	<div class="content clearfix">
     		<div class="eight columns">
                 
-                @if(!empty($intro_image))
-                    {{ HTML::image('uploads/home/' . $intro_image->filename) }}
-                @else
-                    <img src="img/band.jpg" alt="" />
-                @endif
+                <div class="eight columns alpha">
+                    @if(!empty($intro_image))
+                        {{ HTML::image('uploads/home/' . $intro_image->filename) }}
+                    @else
+                        <img src="img/band.jpg" alt="" />
+                    @endif
+                </div>
 
-                <div class="six columns">
+                <div class="eight columns alpha">
        				@if(isset($band_text))
     					<h1>{{ $band_text->title }}</h1>
     					{{ $band_text->content }}
