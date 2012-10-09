@@ -21,16 +21,46 @@
                     <span class="readmore"><a href="#">Read More »</a></span>
                 @endif
 				<ul>
-                    <li><img src="http://www.placehold.it/200" alt="" /></li>
-                    <li><img src="http://www.placehold.it/200" alt="" /></li>
-                    <li><img src="http://www.placehold.it/200" alt="" /></li>
-                    <li><img src="http://www.placehold.it/200" alt="" /></li>
-                    <li><img src="http://www.placehold.it/200" alt="" /></li>
-                    <li><img src="http://www.placehold.it/200" alt="" /></li>
-                    <li><img src="http://www.placehold.it/200" alt="" /></li>
-                    <li><img src="http://www.placehold.it/200" alt="" /></li>
-                    <li><img src="http://www.placehold.it/200" alt="" /></li>
-                    <li><img src="http://www.placehold.it/200" alt="" /></li>
+                    <li>
+                        <a href="http://www.placehold.it/580" rel="lightbox-gallery" title="my caption">
+                            <img src="http://www.placehold.it/200" alt="" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.placehold.it/580" rel="lightbox-gallery" title="my caption">
+                            <img src="http://www.placehold.it/200" alt="" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.placehold.it/580" rel="lightbox-gallery" title="my caption">
+                            <img src="http://www.placehold.it/200" alt="" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.placehold.it/580" rel="lightbox-gallery" title="my caption">
+                            <img src="http://www.placehold.it/200" alt="" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.placehold.it/580" rel="lightbox-gallery" title="my caption">
+                            <img src="http://www.placehold.it/200" alt="" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.placehold.it/580" rel="lightbox-gallery" title="my caption">
+                            <img src="http://www.placehold.it/200" alt="" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.placehold.it/580" rel="lightbox-gallery" title="my caption">
+                            <img src="http://www.placehold.it/200" alt="" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.placehold.it/580" rel="lightbox-gallery" title="my caption">
+                            <img src="http://www.placehold.it/200" alt="" />
+                        </a>
+                    </li>
                 </ul>
 			</div>
 		</div>

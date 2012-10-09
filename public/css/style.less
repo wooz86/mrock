@@ -60,10 +60,9 @@ h1 {
 }
 
 a {
-  text-decoration: none;
-  color: @fontColor;
-  font-weight: normal;
   background: @redColor;
+  color: @fontColor;
+  text-decoration: none;
   padding: 0 4px;
 
   -webkit-transition: 0.5s ease;
@@ -81,7 +80,10 @@ a {
     color: @fontColor;
     background: none;
   }
+
 }
+
+
 
 .wrapper {
     clear: both;
@@ -195,7 +197,13 @@ a {
       height: 40px;
       color: @fontColor;
       overflow: hidden;
+
+      span {
+        color: @fontColor;
+      }
     }
+
+      
 
     &.desktop {
 
@@ -266,8 +274,28 @@ a {
       img {
         .drop-shadow(0,10px, 20px, 0.1);
       }
+
+      a {
+        background: none;
+        border: 0;
+        padding: 0;
+      }
     }
   }
+}
+
+#lbCenter {
+  a {
+    background: none;
+    border: 0;
+    padding: 0;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+    transition: none;
+  }
+  
 }
 
 

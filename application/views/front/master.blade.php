@@ -20,6 +20,9 @@
 		{{ HTML::style('css/style.css') }}
 		<script src="http://code.jquery.com/jquery-1.8.1.min.js"></script>
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,300' rel='stylesheet' type='text/css'>
+		{{ HTML::script('js/slimbox2.js') }}
+		{{ HTML::style('css/slimbox2.css') }}
+
 
 		 <!--[if lt IE 9]>
 			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -45,13 +48,10 @@
 		<div class="site-header mobile">
 			<div class="container">
 				<div class="sixteen columns">
-					  <div class="one-third column alpha"><a href="#menu"><i class="icon-reorder"></i></a></div>
-					  <div class="one-third column brand">
-					  	@if(isset($page))
-		                    <span>{{ $page->title }}</span>
-		                @endif
-					  </div>
-					  <div class="one-third column omega"></div>
+					<a href="#menu"><i class="icon-reorder"></i></a>
+					@if(isset($page))
+	                   &nbsp;<span>{{ $page->title }}</span> 
+	                @endif
 				</div>
 			</div>
 		</div>

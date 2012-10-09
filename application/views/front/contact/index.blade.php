@@ -26,9 +26,9 @@
 		    	@endif
 				
 				{{ Form::open('contact/post_contact_form', 'POST') }}
-				Name:{{ Form::text('name', Input::old('name')) }}
-				E-mail{{ Form::text('email', Input::old('email')) }}
-				Message{{ Form::textarea('message', Input::old('message')) }}
+				Name: {{ Form::text('name', Input::old('name')) }}
+				E-mail {{ Form::text('email', Input::old('email')) }}
+				Message {{ Form::textarea('message', Input::old('message')) }}
 				{{ Form::reset('Reset') }}
 				{{ Form::submit('Send') }}
 				{{ Form::close() }}

@@ -38,5 +38,6 @@ return array(
 	'swiftmailer' 	=> array('auto' => true),
 	'purifier' 		=> array('auto' => true),
 	'imagine' 		=> array('auto' => true),
-	'laramce' 		=> array('auto' => true),
+    'laramce'       => array('auto' => true),
+	'twitterfeed'	=> array('auto' => true),
 );
