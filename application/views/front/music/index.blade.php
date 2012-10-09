@@ -10,12 +10,12 @@
 
     <div class="container">
     	<div class="content clearfix">
-    		<div class="seven columns clearfix">
+    		<div class="sixteen columns clearfix">
 
                 @if(isset($page))
                     <h1>{{ $page->title }}</h1>
 
-                    <p>Donec <a href="#">Soundcloud</a> id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat <a href="#">Youtube</a> ligula, eget lacinia odio sem nec elit. <a href="#">Spotify</a> sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+                    <p class="seven columns alpha">Donec <a href="#">Soundcloud</a> id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat <a href="#">Youtube</a> ligula, eget lacinia odio sem nec elit. <a href="#">Spotify</a> sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
                 @endif
 
                 @if($main_text)

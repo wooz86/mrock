@@ -26,12 +26,12 @@
 		    	@endif
 				
 				{{ Form::open('contact/post_contact_form', 'POST') }}
-				Name: {{ Form::text('name', Input::old('name')) }}
-				E-mail {{ Form::text('email', Input::old('email')) }}
-				Message {{ Form::textarea('message', Input::old('message')) }}
-				{{ Form::reset('Reset') }}
+				{{ Form::text('name', Input::old('name'), array('placeholder'=>'Your Name')) }}
+				{{ Form::text('email', Input::old('email'), array('placeholder'=>'E-Mail')) }}
+				{{ Form::textarea('message', Input::old('message'), array('placeholder'=>'Your Message')) }}
 				{{ Form::submit('Send') }}
 				{{ Form::close() }}
+
 			</div>
 		</div>
 	</div>
